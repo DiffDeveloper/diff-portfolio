@@ -1,12 +1,71 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website built with React and Vite, showcasing my skills, projects, and professional experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Hero Section** - Dynamic text animations and parallax effects
+- **Project Showcase** - Detailed project cards with descriptions and technologies
+- **Professional Timeline** - Work experience and education history
+- **Skills & Technologies** - Visual representation of technical expertise
+- **Contact Section** - Easy way for visitors to get in touch
+- **Responsive Design** - Optimized for all devices and screen sizes
+- **Modern UI/UX** - Clean, professional design with smooth animations
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React.js, Vite
+- **Styling**: CSS3, Tailwind CSS
+- **3D Graphics**: Three.js
+- **Animations**: Custom CSS animations and React components
+- **Icons & Assets**: SVG icons, custom graphics
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── sections/           # Main page sections
+├── constants/          # Configuration and data
+└── assets/            # Images, icons, and media files
+```
+
+## 🎯 Key Components
+
+- **Hero Section** - Eye-catching introduction with animated text
+- **About Section** - Personal and professional background
+- **Projects Section** - Portfolio of completed work
+- **Experience Timeline** - Professional journey
+- **Contact Form** - Easy communication
+- **Navigation** - Smooth scrolling between sections
+
+## 🚀 Getting Started
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+4. Build for production: `npm run build`
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+- Desktop computers
+- Tablets
+- Mobile devices
+- Various screen orientations
+
+## 🌟 Special Features
+
+- **Parallax Scrolling** - Immersive background effects
+- **Interactive Elements** - Engaging user experience
+- **Smooth Animations** - Professional transitions
+- **3D Visuals** - Modern graphics and effects
+- **Performance Optimized** - Fast loading and smooth interactions
+
+## 📧 Contact
+
+Feel free to reach out through the contact form on the website or connect with me on professional networks.
+
+---
+
+Built with ❤️ using React and modern web technologies.
