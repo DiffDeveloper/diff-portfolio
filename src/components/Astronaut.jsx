@@ -12,21 +12,13 @@ export function Astronaut(props) {
   const [modelLoaded, setModelLoaded] = useState(false);
   const [modelError, setModelError] = useState(null);
   
-  // Try to load the model with error handling
-  let gltfData = null;
-  try {
-    gltfData = useGLTF("/models/mkts.glb");
-  } catch (error) {
-    console.error("Error loading GLB model:", error);
-    setModelError(error.message);
-  }
-  
-  const { scene, animations, nodes } = gltfData || {};
+  // Load the model using the hook
+  const { scene, animations, nodes } = useGLTF("/models/mkts.glb");
   const { actions } = useAnimations(animations || [], group);
   
   useEffect(() => {
     console.log("=== GLB Model Debug Info ===");
-    console.log("Model loaded:", !!gltfData);
+    console.log("Model loaded:", !!scene);
     console.log("Scene:", scene);
     console.log("Nodes:", nodes);
     console.log("Animations:", animations);
@@ -35,7 +27,7 @@ export function Astronaut(props) {
     if (scene || nodes) {
       setModelLoaded(true);
     }
-  }, [gltfData, scene, nodes, animations]);
+  }, [scene, nodes, animations]);
 
   useEffect(() => {
     if (animations && animations.length > 0) {
