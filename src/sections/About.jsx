@@ -17,7 +17,7 @@ const About = () => {
             className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
           />
           <div className="z-10">
-            <p className="headtext">Hi, I'm Min Khant Than Swe AKA Diff</p>
+            <p className="headtext">Min Khant Than Swe (AKA Diff)</p>
             <p className="subtext">
               I'm a fullstack developer with experience in React, Python, Java, and modern web technologies. I've built AI-powered applications, developed client projects, and created responsive web solutions using frameworks like Django and Spring Boot.
             </p>

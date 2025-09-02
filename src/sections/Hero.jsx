@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import HeroText from "../components/HeroText";
-import ParallaxBackground from "../components/ParallaxBackground";
+import { Particles } from "../components/Particles";
+import { Frameworks } from "../components/Frameworks";
 import { Astronaut } from "../components/Astronaut";
 import { Float } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
@@ -13,7 +14,21 @@ const Hero = () => {
   return (
     <section id="home" className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
       <HeroText />
-      <ParallaxBackground />
+      
+      {/* Tech Stacks Background - Orbiting frameworks */}
+      <div className="absolute inset-0 -z-40">
+        <Frameworks />
+      </div>
+      
+      {/* Particles Background - Same as Contact.jsx */}
+      <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
+      
       <figure
         className="absolute inset-0"
         style={{ width: "100vw", height: "100vh" }}
