@@ -1,56 +1,117 @@
 import { motion } from "motion/react";
 
-const EducationCard = ({ degree, institution, date, description, achievements }) => {
+const achievementToneStyles = {
+  amber: {
+    badge:
+      "border-orange/40 bg-gradient-to-br from-orange/20 to-sand/20 text-sand",
+    dot: "bg-orange",
+  },
+  pink: {
+    badge:
+      "border-fuchsia/40 bg-gradient-to-br from-fuchsia/20 to-lavender/20 text-pink-200",
+    dot: "bg-fuchsia",
+  },
+};
+
+const EducationCard = ({
+  degree,
+  institution,
+  date,
+  description,
+  achievements,
+  index,
+}) => {
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative p-6 border rounded-xl border-gray-50/[.1] bg-gradient-to-r bg-indigo to-storm hover:bg-royal hover-animation"
+      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.25 }}
+      className="relative overflow-hidden rounded-2xl border border-white/12 bg-midnight/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/70 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_18px_rgba(34,211,238,0.24)]"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h3 className="text-xl font-semibold text-white mb-2">{degree}</h3>
-          <p className="text-neutral-300 mb-1">{institution}</p>
-          <p className="text-sm text-neutral-400">{date}</p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="space-y-1">
+          <p className="text-[11px] tracking-[0.18em] text-aqua/80 uppercase">
+            Education
+          </p>
+          <h3 className="text-lg font-semibold leading-snug text-white md:text-xl">
+            {degree}
+          </h3>
+          <p className="text-sm text-neutral-300 md:text-base">{institution}</p>
         </div>
+        <span className="rounded-full border border-white/15 bg-midnight/70 px-3 py-1 text-xs text-neutral-300">
+          {date}
+        </span>
       </div>
-      <p className="text-neutral-300 mb-4">{description}</p>
+
+      <p className="mt-4 text-sm leading-relaxed text-neutral-300 md:text-base">
+        {description}
+      </p>
+
       {achievements && achievements.length > 0 && (
-        <div>
-          <h4 className="text-sm font-medium text-white mb-2">Key Achievements:</h4>
-          <ul className="space-y-1">
+        <div className="mt-5">
+          <h4 className="mb-3 text-sm font-medium text-white">
+            Highlights
+          </h4>
+          <ul className="ml-4 list-disc space-y-2 text-left text-xs text-neutral-200 md:text-sm">
             {achievements.map((achievement, index) => (
-              <li key={index} className="text-sm text-neutral-300 flex items-start">
-                <span className="text-blue-400 mr-2">•</span>
+              <li key={index} className="leading-relaxed marker:text-aqua">
                 {achievement}
               </li>
             ))}
           </ul>
         </div>
       )}
-    </motion.div>
+    </motion.article>
   );
 };
 
-const AchievementCard = ({ title, description, date, icon, location }) => {
+const AchievementCard = ({
+  title,
+  description,
+  date,
+  icon,
+  location,
+  tone,
+  index,
+}) => {
+  const toneStyle = achievementToneStyles[tone] || achievementToneStyles.pink;
+
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className="relative p-6 border rounded-xl border-gray-50/[.1] bg-gradient-to-r bg-indigo to-storm hover:bg-royal hover-animation"
+      transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.25 }}
+      className="relative overflow-hidden rounded-2xl border border-white/12 bg-midnight/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/70 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_18px_rgba(34,211,238,0.24)]"
     >
-      <div className="flex items-center gap-3 mb-3">
-        {icon && <div className="text-2xl">{icon}</div>}
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          {icon && (
+            <div
+              className={`grid size-11 place-items-center rounded-xl border text-xl shadow-[0_0_18px_rgba(124,58,237,0.2)] ${toneStyle.badge}`}
+            >
+              {icon}
+            </div>
+          )}
+          <h3 className="text-base font-semibold leading-snug text-white md:text-lg">
+            {title}
+          </h3>
+        </div>
+        <span className="rounded-full border border-white/15 bg-midnight/70 px-3 py-1 text-xs text-neutral-300">
+          {date}
+        </span>
       </div>
-      <p className="text-neutral-300 mb-2">{description}</p>
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-neutral-400">{date}</p>
-        {location && <p className="text-sm text-neutral-400">{location}</p>}
+
+      <p className="mt-4 text-sm leading-relaxed text-neutral-300 md:text-base">
+        {description}
+      </p>
+
+      <div className="mt-4 flex items-center gap-2 text-sm text-neutral-300">
+        <span className={`size-2 rounded-full ${toneStyle.dot}`} />
+        {location && <p>{location}</p>}
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 
@@ -59,67 +120,96 @@ export default function EducationAndAchievements() {
     {
       degree: "Bachelor of Engineering in Software Engineering",
       institution: "Mae Fah Luang University",
-      date: "August 2021 - Present",
-      description: "Comprehensive software engineering program focusing on modern development practices, algorithms, and software architecture.",
+      date: "August 2022 - May 2026 (Expected)",
+      description:
+        "Software engineering curriculum centered on practical application development, architecture fundamentals, and team-based delivery.",
       achievements: [
         "Current GPA: 3.80",
         "Software Engineering specialization",
-        "Active in software development projects",
-        "Studying modern development methodologies"
-      ]
+        "Built fullstack and AI-focused academic projects",
+        "Hands-on experience with agile collaboration",
+      ],
     },
     {
       degree: "Web Development Certification",
       institution: "AB Web Beginner Class",
       date: "August 2020 - January 2021",
-      description: "Intensive web development course covering fundamental technologies and practical application building.",
+      description:
+        "Foundational web development training focused on building complete web pages and practical frontend implementation.",
       achievements: [
         "Successfully completed and passed",
         "Mastered PHP, HTML, CSS fundamentals",
-        "Gained practical skills in web application development",
-        "Built and styled complete web applications"
-      ]
-    }
+        "Applied basic JavaScript in practical exercises",
+        "Built and styled complete web interfaces",
+      ],
+    },
   ];
 
   const achievements = [
     {
       title: "Hackathon Finalist - Group Interview Challenge",
-      description: "Successfully passed the competitive group hackathon/interview challenge at Issa Compass, showcasing collaboration, problem-solving, and communication under pressure. Recognized for strong performance in both technical and interpersonal aspects.",
+      description:
+        "Passed the competitive group hackathon/interview challenge at Issa Compass, demonstrating collaboration, communication, and structured problem-solving under pressure.",
       date: "March 2025",
       icon: "🏆",
-      location: "Bangkok, Thailand"
+      location: "Bangkok, Thailand",
+      tone: "amber",
     },
     {
       title: "Project Manager - Software Engineering Open House",
-      description: "Selected to showcase RepoAI, an AI-powered GitHub assistant, at the Software Engineering Open House. Demonstrated the system's real-time LLM integration, GitHub automation, and code refactoring capabilities to students, faculty, and visitors. Engaged in Q&A and explained AI model workflows, system architecture, and project outcomes.",
+      description:
+        "Showcased RepoAI at the Software Engineering Open House, presenting AI-driven GitHub workflows, system architecture, and project outcomes to students and faculty.",
       date: "February 2025",
       icon: "🤖",
-      location: "Chiang Rai, Thailand"
-    }
+      location: "Chiang Rai, Thailand",
+      tone: "pink",
+    },
   ];
 
   return (
-    <section id="education" className="items-start mt-25 md:mt-35 c-space">
-      <h2 className="text-heading">Education & Achievements</h2>
-      
-      {/* Education Section */}
-      <div className="mt-12">
-        <h3 className="text-2xl font-semibold text-white mb-6">Education</h3>
-        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
-          {education.map((edu, index) => (
-            <EducationCard key={index} {...edu} />
-          ))}
-        </div>
-      </div>
+    <section id="education" className="c-space section-spacing">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(40,43,75,0.55)_0%,rgba(31,30,57,0.45)_40%,rgba(6,9,31,0.85)_75%,rgba(3,4,18,0.95)_100%)] p-6 md:p-10">
+        <div className="relative z-10">
+          <p className="text-xs tracking-[0.25em] text-cyan-300/90 uppercase [text-shadow:0_0_12px_rgba(34,211,238,0.32)]">
+            Academic Journey
+          </p>
+          <h2 className="mt-3 text-heading">Education & Achievements</h2>
+          <p className="subtext mt-3 max-w-3xl">
+            A quick view of my formal education and key milestones that shaped
+            my growth as a software engineer.
+          </p>
 
-      {/* Achievements Section */}
-      <div className="mt-16">
-        <h3 className="text-2xl font-semibold text-white mb-6">Key Achievements</h3>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-          {achievements.map((achievement, index) => (
-            <AchievementCard key={index} {...achievement} />
-          ))}
+          <div className="mt-10">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="size-2 rounded-full bg-aqua shadow-[0_0_10px_rgba(51,194,204,0.6)]" />
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                Education
+              </h3>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {education.map((edu, index) => (
+                <EducationCard key={edu.degree} index={index} {...edu} />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="size-2 rounded-full bg-fuchsia shadow-[0_0_10px_rgba(202,47,140,0.55)]" />
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                Key Achievements
+              </h3>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {achievements.map((achievement, index) => (
+                <AchievementCard
+                  key={achievement.title}
+                  index={index}
+                  {...achievement}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

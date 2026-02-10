@@ -26,35 +26,52 @@ export const Timeline = ({ data }) => {
     <div className="c-space section-spacing" ref={containerRef}>
       <h2 className="text-heading">My Work Experience</h2>
       <div ref={ref} className="relative pb-20">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
-          >
-            <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
-              <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
-                <div className="w-4 h-4 p-2 border rounded-full bg-neutral-800 border-neutral-700" />
-              </div>
-              <div className="flex-col hidden gap-2 text-xl font-bold md:flex md:pl-20 md:text-4xl text-neutral-300">
-                <h3>{item.date}</h3>
-                <h3 className="text-3xl text-neutral-400">{item.title}</h3>
-                <h3 className="text-3xl text-neutral-500">{item.job}</h3>
-              </div>
-            </div>
+        {data.map((item, index) => {
+          const isSunline = item.job.includes("Sunline Technology");
+          const isLumonix = item.job.includes("Lumonix Lab AI");
 
-            <div className="relative w-full pl-20 pr-4 md:pl-4">
-              <div className="block mb-4 text-2xl font-bold text-left text-neutral-300 md:hidden ">
-                <h3>{item.date}</h3>
-                <h3>{item.job}</h3>
+          const jobClassName = isSunline
+            ? "text-3xl text-[#00E5FF] drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]"
+            : isLumonix
+            ? "inline-block text-3xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-pink-400 to-violet-400 drop-shadow-[0_0_10px_rgba(244,114,182,0.45)]"
+            : "text-3xl text-neutral-500";
+
+          const mobileJobClassName = isSunline
+            ? "text-[#00E5FF] drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]"
+            : isLumonix
+            ? "inline-block text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-pink-400 to-violet-400 drop-shadow-[0_0_10px_rgba(244,114,182,0.45)]"
+            : "text-neutral-300";
+
+          return (
+            <div
+              key={index}
+              className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            >
+              <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
+                <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
+                  <div className="w-4 h-4 p-2 border rounded-full bg-neutral-800 border-neutral-700" />
+                </div>
+                <div className="flex-col hidden gap-2 text-xl font-bold md:flex md:pl-20 md:text-4xl text-neutral-300">
+                  <h3>{item.date}</h3>
+                  <h3 className="text-3xl text-neutral-400">{item.title}</h3>
+                  <h3 className={jobClassName}>{item.job}</h3>
+                </div>
               </div>
-              {item.contents.map((content, index) => (
-                <p className="mb-3 font-normal text-neutral-400" key={index}>
-                  {content}
-                </p>
-              ))}
+
+              <div className="relative w-full pl-20 pr-4 md:pl-4">
+                <div className="block mb-4 text-2xl font-bold text-left text-neutral-300 md:hidden ">
+                  <h3>{item.date}</h3>
+                  <h3 className={mobileJobClassName}>{item.job}</h3>
+                </div>
+                {item.contents.map((content, index) => (
+                  <p className="mb-3 font-normal text-neutral-400" key={index}>
+                    {content}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         <div
           style={{
             height: height + "px",

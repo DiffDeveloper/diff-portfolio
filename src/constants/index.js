@@ -206,36 +206,43 @@ export const mySocials = [
 
 export const experiences = [
   {
-    title: "Full-stack Developer (Internship)",
-    job: "Lumonix Lab AI",
-    date: "June 2025 - August 2025",
+    title: "Java Developer Intern",
+    job: "Sunline Technology (Bangkok, Onsite)",
+    date: "January 2026 - Present",
     contents: [
-      "Collaborated on the development of AI-powered web applications using React, Node.js, Express, and MongoDB.",
-      "Built and maintained frontend components and backend APIs, improving UI/UX responsiveness and system performance.",
-      "Worked closely with design and AI teams to streamline model inputs and outputs via RESTful services.",
-      "Used Git, Docker, and Postman for version control, containerization, and API testing in an Agile environment.",
+      "Supported enterprise Java backend systems using Spring Boot (MVC) within core banking platforms.",
+      "Monitored defects, batch processes, and system stability across SIT and UAT environments.",
+      "Tracked issues in Jira/Mone, assisted with log analysis, and supported backend testing and API documentation.",
     ],
   },
   {
-    title: "Backend Developer",
-    job: "Client's Project - Remote",
+    title: "Fullstack Developer (Internship)",
+    job: "Lumonix Lab AI (Remote)",
+    date: "June 2025 - August 2025",
+    contents: [
+      "Built and supported full-stack features for AI-driven web applications using React and Node.js.",
+      "Worked with cross-functional teams to integrate APIs, test features, and improve application performance.",
+    ],
+  },
+  {
+    title: "Backend Developer (Client's Project)",
+    job: "Freelance - Chiang Rai, Thailand",
     date: "February 2024 - December 2024",
     contents: [
       "Developed web applications using Flutter and Python.",
-      "Implemented front-end features with React and Bootstrap while building back-end with Django.",
-      "Managed database operations with PostgreSQL.",
+      "Implemented frontend features with React and Bootstrap, and built backend services with Django.",
+      "Managed database operations with Postgres.",
       "Collaborated directly with clients to gather requirements and deliver solutions.",
     ],
   },
   {
     title: "Web Application Developer",
-    job: "Freelance",
+    job: "Freelance (Academic Projects) - Chiang Rai, Thailand",
     date: "January 2024 - May 2024",
     contents: [
-      "Built and maintained full-stack web applications.",
-      "Utilized JavaScript frameworks like Node.js and jQuery.",
-      "Designed responsive UIs with HTML, CSS, and Bootstrap.",
-      "Handled PostgreSQL database management and project deployments.",
+      "Developed and deployed a Java-based web application game using Spring Boot and Docker, focusing on backend logic and performance.",
+      "Built a full-stack incident-reporting platform using React, Node.js, Firebase, and Google Maps APIs.",
+      "Worked with senior reviewers to refine requirements and iteratively improve application features.",
     ],
   },
 ];

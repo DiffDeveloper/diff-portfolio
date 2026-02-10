@@ -1,11 +1,18 @@
-import { useRef } from "react";
-import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
+import Marquee from "../components/Marquee";
 
 const About = () => {
-  const grid2Container = useRef();
+  const coreExpertise = [
+    "Java",
+    "Spring Boot",
+    "React",
+    "Node.js",
+    "REST APIs",
+    "System Monitoring",
+  ];
+
   return (
     <section className="c-space section-spacing" id="about">
       <h2 className="text-heading">About Me</h2>
@@ -19,60 +26,45 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Min Khant Than Swe (AKA Diff)</p>
             <p className="subtext">
-              I'm a fullstack developer with experience in React, Python, Java, and modern web technologies. I've built AI-powered applications, developed client projects, and created responsive web solutions using frameworks like Django and Spring Boot.
+              Software Engineering student focused on fullstack application
+              development with Java, Spring Boot, React, and Node.js.
+              Experienced in enterprise backend support and client projects,
+              with emphasis on reliable APIs, performance, and clean delivery.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
         </div>
         {/* Grid 2 */}
         <div className="grid-default-color grid-2">
-          <div
-            ref={grid2Container}
-            className="flex items-center justify-center w-full h-full"
-          >
-            <p className="flex items-end text-5xl text-gray-500">
-              CODE IS CRAFT
+          <div className="flex h-full w-full flex-col items-center justify-center gap-5 text-center">
+            <div className="space-y-2">
+              <p className="text-xs tracking-[0.2em] text-cyan-300/90 uppercase [text-shadow:0_0_10px_rgba(34,211,238,0.35)]">
+                Professional Focus
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-neutral-200 md:text-3xl">
+                Core Expertise
+              </p>
+            </div>
+            <div className="w-full max-w-[32rem]">
+              <Marquee
+                reverse
+                repeat={5}
+                className="[--duration:70s] [--gap:0.65rem] px-0 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+              >
+                {coreExpertise.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-xl border border-white/15 bg-midnight/60 px-3 py-2 text-xs text-neutral-200 sm:text-sm whitespace-nowrap"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </Marquee>
+            </div>
+            <p className="subtext mx-auto max-w-lg text-center">
+              Building reliable fullstack products with clean architecture and
+              production-minded engineering.
             </p>
-            <Card
-              style={{ rotate: "75deg", top: "30%", left: "20%" }}
-              text="Fullstack"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-30deg", top: "60%", left: "45%" }}
-              text="REST API"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "90deg", bottom: "30%", left: "70%" }}
-              text="Database"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "55%", left: "0%" }}
-              text="Responsive"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="Git"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/react.svg"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/python.png"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/java.png"
-              containerRef={grid2Container}
-            />
           </div>
         </div>
         {/* Grid 3 */}
@@ -80,7 +72,8 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headtext">Time Zone</p>
             <p className="subtext">
-              I'm currently based in Chiang Rai, Thailand, and open to relocate
+              I am currently based in Chiang Rai, Thailand, and open to remote,
+              onsite, and relocation opportunities.
             </p>
           </div>
           <figure className="absolute left-[30%] top-[10%]">
@@ -97,13 +90,15 @@ const About = () => {
           </div>
         </div>
         {/* Grid 5 */}
-        <div className="grid-default-color grid-5">
-          <div className="z-10 w-[50%]">
-            <p className="headText">Teck Stack</p>
-            <p className="subtext">
-              I specialize in fullstack development with React, Python, Java, and modern frameworks that allow me to build robust and scalable web applications
-            </p>
-          </div>
+          <div className="grid-default-color grid-5">
+            <div className="z-10 w-[50%]">
+              <p className="headtext">Tech Stack</p>
+              <p className="subtext">
+                My core stack includes Java, Python, React, Node.js, Spring
+                Boot, Django, and PostgreSQL, plus tools like Docker,
+                Git/GitHub, and foundational exposure to AWS and Kubernetes.
+              </p>
+            </div>
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
             <Frameworks />
           </div>

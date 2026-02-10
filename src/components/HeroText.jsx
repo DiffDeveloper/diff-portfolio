@@ -9,7 +9,7 @@ const HeroText = () => {
   };
   
   return (
-    <div className="z-10 mt-20 md:mt-40 rounded-3xl bg-clip-text w-full">
+    <div className="pointer-events-none z-10 mt-20 md:mt-40 rounded-3xl bg-clip-text w-full">
       {/* Desktop View - Centered layout */}
       <div className="hidden md:flex w-full flex-col items-center space-y-12">
         {/* Text - Centered */}
@@ -31,7 +31,7 @@ const HeroText = () => {
               animate="visible"
               transition={{ delay: 1.2 }}
             >
-              A FullstackSoftware Engineer<br />
+              A Fullstack Software Engineer<br />
               Dedicated to Crafting
             </motion.p>
             <motion.div

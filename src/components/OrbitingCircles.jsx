@@ -13,6 +13,9 @@ export function OrbitingCircles({
   ...props
 }) {
   const calculatedDuration = duration / speed;
+  const resolvedIconSize =
+    typeof iconSize === "number" ? `${iconSize}px` : iconSize;
+
   return (
     <>
       {path && (
@@ -38,7 +41,7 @@ export function OrbitingCircles({
               "--duration": calculatedDuration,
               "--radius": radius,
               "--angle": angle,
-              "--icon-size": `${iconSize}px`,
+              "--icon-size": resolvedIconSize,
             }}
             className={twMerge(
               `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full ${
