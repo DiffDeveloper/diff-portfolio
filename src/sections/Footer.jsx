@@ -15,7 +15,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <p>© 2025 Diff. All rights reserved.</p>
+      <p>© 2026 Diff. All rights reserved.</p>
     </section>
   );
 };

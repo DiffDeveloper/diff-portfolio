@@ -72,7 +72,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headtext">Time Zone</p>
             <p className="subtext">
-              I am currently based in Chiang Rai, Thailand, and open to remote,
+              I am currently based in Bangkok, Thailand, and open to remote,
               onsite, and relocation opportunities.
             </p>
           </div>
