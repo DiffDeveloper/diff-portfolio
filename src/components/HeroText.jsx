@@ -1,150 +1,101 @@
-import { FlipWords } from "./FlipWords";
 import { motion } from "motion/react";
+import { FlipWords } from "./FlipWords";
+import HoverBorderButton from "./HoverBorderButton";
+import TextGenerateEffect from "./TextGenerateEffect";
 
 const HeroText = () => {
   const words = ["Secure", "Modern", "Scalable"];
-  const variants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
-  
+
   return (
-    <div className="pointer-events-none z-10 mt-20 md:mt-40 rounded-3xl bg-clip-text w-full">
-      {/* Desktop View - Centered layout */}
-      <div className="hidden md:flex w-full flex-col items-center space-y-12">
-        {/* Text - Centered */}
-        <div className="text-center">
-          <motion.h1
-            className="text-3xl font-medium"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1 }}
+    <div className="relative z-10 flex w-full items-center py-20 md:py-24">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-[1.05fr_0.95fr]">
+        <div className="space-y-6 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-[11px] tracking-[0.3em] text-cyan-200/85 uppercase"
           >
-            Hi, I'm Min Khant Than Swe
+            Fullstack Engineer • Bangkok
+          </motion.p>
+
+          <TextGenerateEffect
+            words="Building production-minded software with clean architecture and reliable delivery."
+            delay={0.15}
+            className="mx-auto max-w-2xl text-sm text-neutral-300 md:text-base"
+          />
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.45, ease: "easeOut" }}
+            className="text-[clamp(1.25rem,5.1vw,3rem)] font-semibold leading-tight whitespace-nowrap text-white"
+          >
+            Hi, I&apos;m Min Khant Than Swe
           </motion.h1>
-          <div className="flex flex-col items-center">
+
+          <div className="space-y-3">
             <motion.p
-              className="text-4xl font-medium text-neutral-300"
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 1.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.45, ease: "easeOut" }}
+              className="text-xl text-neutral-200 sm:text-2xl md:text-3xl"
             >
-              A Fullstack Software Engineer<br />
-              Dedicated to Crafting
+              I design and deliver
             </motion.p>
+
             <motion.div
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 1.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.45, ease: "easeOut" }}
             >
               <FlipWords
                 words={words}
-                className="font-black text-white text-6xl"
+                className="font-black text-4xl text-white sm:text-5xl md:text-6xl"
               />
             </motion.div>
+
             <motion.p
-              className="text-3xl font-medium text-neutral-300"
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 1.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65, duration: 0.45, ease: "easeOut" }}
+              className="text-lg text-neutral-300 sm:text-xl md:text-2xl"
             >
-              Fullstack & Software Solutions
+              fullstack products and software solutions.
             </motion.p>
           </div>
-        </div>
-        
-        {/* Image - Large and centered */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ 
-            delay: 2, 
-            duration: 0.8, 
-            ease: "easeOut" 
-          }}
-          className="w-[500px] h-[500px] flex items-center justify-center"
-        >
-          <img
-            src="/assets/Adobe Express - file.png"
-            alt="MKTS Portfolio"
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              console.error("Image failed to load:", e.target.src);
-              e.target.style.display = 'none';
-            }}
-          />
-        </motion.div>
-      </div>
-      
-      {/* Mobile View - Stacked and centered */}
-      <div className="md:hidden flex flex-col items-center space-y-8 text-center">
-        {/* Text */}
-        <motion.h1
-          className="text-3xl font-medium"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1 }}
-        >
-          Hi, I'm Min Khant Than Swe
-        </motion.h1>
-        <div className="flex flex-col items-center">
-          <motion.p
-            className="text-4xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.2 }}
-          >
-            A Software Engineer<br />
-            A Fullstack Developer <br /> 
-            Dedicated to Crafting
-          </motion.p>
+
           <motion.div
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.45, ease: "easeOut" }}
+            className="flex flex-wrap items-center justify-center gap-3"
           >
-            <FlipWords
-              words={words}
-              className="font-black text-white text-6xl"
-            />
+            <HoverBorderButton href="#projects">View Projects</HoverBorderButton>
+            <HoverBorderButton href="#contact">Let&apos;s Talk</HoverBorderButton>
           </motion.div>
+
           <motion.p
-            className="text-3xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.95, duration: 0.45, ease: "easeOut" }}
+            className="mx-auto max-w-xl text-xs text-neutral-300 sm:text-sm"
           >
-            Fullstack & Software Solutions
+            Intern @ Sunline • 5+ shipped projects • AI capstone presenter
           </motion.p>
         </div>
-        
-        {/* Mobile Image - Large and centered */}
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ 
-            delay: 2, 
-            duration: 0.8, 
-            ease: "easeOut" 
-          }}
-          className="w-80 h-80 flex items-center justify-center"
+          initial={{ opacity: 0, y: 24, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.55, ease: "easeOut" }}
+          className="relative mx-auto w-full max-w-sm md:max-w-md"
         >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(51,194,204,0.35),transparent_72%)] blur-xl" />
           <img
             src="/assets/Adobe Express - file.png"
-            alt="MKTS Portfolio"
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              console.error("Image failed to load:", e.target.src);
-              e.target.style.display = 'none';
-            }}
+            alt="Min Khant Than Swe profile"
+            className="relative mx-auto h-auto w-full max-w-[22rem] object-contain"
           />
         </motion.div>
       </div>

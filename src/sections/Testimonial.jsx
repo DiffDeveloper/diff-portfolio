@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import ShineBorder from "../components/ShineBorder";
 
 const achievementToneStyles = {
   amber: {
@@ -27,8 +28,15 @@ const EducationCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.25 }}
-      className="relative overflow-hidden rounded-2xl border border-white/12 bg-midnight/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/70 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_18px_rgba(34,211,238,0.24)]"
+      className="group relative overflow-hidden rounded-2xl bg-midnight/70 p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
     >
+      <ShineBorder
+        borderWidth={1}
+        duration={8}
+        shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+        className="rounded-2xl"
+      />
+
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
           <p className="text-[11px] tracking-[0.18em] text-aqua/80 uppercase">
@@ -50,12 +58,10 @@ const EducationCard = ({
 
       {achievements && achievements.length > 0 && (
         <div className="mt-5">
-          <h4 className="mb-3 text-sm font-medium text-white">
-            Highlights
-          </h4>
+          <h4 className="mb-3 text-sm font-medium text-white">Highlights</h4>
           <ul className="ml-4 list-disc space-y-2 text-left text-xs text-neutral-200 md:text-sm">
-            {achievements.map((achievement, index) => (
-              <li key={index} className="leading-relaxed marker:text-aqua">
+            {achievements.map((achievement, achievementIndex) => (
+              <li key={achievementIndex} className="leading-relaxed marker:text-aqua">
                 {achievement}
               </li>
             ))}
@@ -83,8 +89,15 @@ const AchievementCard = ({
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.25 }}
-      className="relative overflow-hidden rounded-2xl border border-white/12 bg-midnight/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/70 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_18px_rgba(34,211,238,0.24)]"
+      className="group relative overflow-hidden rounded-2xl bg-midnight/70 p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
     >
+      <ShineBorder
+        borderWidth={1}
+        duration={8}
+        shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+        className="rounded-2xl"
+      />
+
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           {icon && (

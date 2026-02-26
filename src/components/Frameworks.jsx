@@ -1,32 +1,39 @@
 import { OrbitingCircles } from "./OrbitingCircles";
 
-export function Frameworks() {
-  const skills = [
-    { name: "auth0", ext: "svg" },
-    { name: "aws-svgrepo-com", ext: "svg" },
-    { name: "cplusplus", ext: "svg" },
-    { name: "css3", ext: "svg" },
-    { name: "django", ext: "png" },
-    { name: "git", ext: "svg" },
+export function Frameworks({ className = "" }) {
+  const frontendSkills = [
     { name: "html5", ext: "svg" },
-    { name: "java", ext: "png" },
+    { name: "css3", ext: "svg" },
     { name: "javascript", ext: "svg" },
-    { name: "postgre", ext: "png" },
-    { name: "python", ext: "png" },
     { name: "react", ext: "svg" },
-    { name: "springboot", ext: "png" },
-    { name: "sqlite", ext: "svg" },
     { name: "tailwindcss", ext: "svg" },
-    { name: "kubernetes-svgrepo-com", ext: "svg" },
     { name: "vitejs", ext: "svg" },
   ];
 
-  const reversedSkills = [...skills].reverse();
+  const backendDataToolSkills = [
+    { name: "java", ext: "png" },
+    { name: "springboot", ext: "png" },
+    { name: "python", ext: "png" },
+    { name: "django", ext: "png" },
+    { name: "postgre", ext: "png" },
+    { name: "sqlite", ext: "svg" },
+    { name: "mysql", ext: "png" },
+    { name: "git", ext: "svg" },
+    { name: "aws-svgrepo-com", ext: "svg" },
+    { name: "kubernetes-svgrepo-com", ext: "svg" },
+    { name: "auth0", ext: "svg" },
+  ];
 
   return (
-    <div className="relative flex h-[15rem] w-full flex-col items-center justify-center">
-      <OrbitingCircles iconSize="clamp(1.8rem, 4.5vw, 2.5rem)">
-        {skills.map((skill) => (
+    <div
+      className={`relative flex h-[15rem] w-full flex-col items-center justify-center ${className}`}
+    >
+      <OrbitingCircles
+        radius={68}
+        speed={1.05}
+        iconSize="clamp(1.2rem, 3.6vw, 1.75rem)"
+      >
+        {frontendSkills.map((skill) => (
           <Icon
             key={skill.name}
             src={`assets/logos/${skill.name}.${skill.ext}`}
@@ -34,15 +41,16 @@ export function Frameworks() {
           />
         ))}
       </OrbitingCircles>
+
       <OrbitingCircles
-        iconSize="clamp(1.2rem, 3.2vw, 1.6rem)"
-        radius={100}
+        radius={108}
         reverse
-        speed={2}
+        speed={1.25}
+        iconSize="clamp(0.95rem, 2.8vw, 1.35rem)"
       >
-        {reversedSkills.map((skill) => (
+        {backendDataToolSkills.map((skill) => (
           <Icon
-            key={`${skill.name}-reverse`}
+            key={skill.name}
             src={`assets/logos/${skill.name}.${skill.ext}`}
             alt={skill.name}
           />
@@ -56,6 +64,6 @@ const Icon = ({ src, alt }) => (
   <img
     src={src}
     alt={alt}
-    className="size-full rounded-sm object-contain duration-200 hover:scale-110"
+    className="size-full object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.18)] duration-200 hover:scale-110"
   />
 );

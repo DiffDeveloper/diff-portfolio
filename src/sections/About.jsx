@@ -2,8 +2,13 @@ import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 import Marquee from "../components/Marquee";
+import { PinContainer } from "../components/PinContainer";
+import ShineBorder from "../components/ShineBorder";
 
 const About = () => {
+  const linkedInProfile =
+    "https://www.linkedin.com/in/min-khant-than-swe-29b877323/";
+
   const coreExpertise = [
     "Java",
     "Spring Boot",
@@ -13,30 +18,93 @@ const About = () => {
     "System Monitoring",
   ];
 
+  const coreStack = ["Java", "Spring Boot", "React", "Node.js"];
+
   return (
     <section className="c-space section-spacing" id="about">
       <h2 className="text-heading">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1">
+        <div className="grid-default-color grid-1">
           <img
             src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
+            className="absolute inset-0 h-full w-full object-cover object-[60%_22%] opacity-60"
           />
-          <div className="z-10">
-            <p className="headtext">Min Khant Than Swe (AKA Diff)</p>
-            <p className="subtext">
-              Software Engineering student focused on fullstack application
-              development with Java, Spring Boot, React, and Node.js.
-              Experienced in enterprise backend support and client projects,
-              with emphasis on reliable APIs, performance, and clean delivery.
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_26%_14%,rgba(51,194,204,0.2),transparent_46%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center gap-2 py-3 sm:gap-3 sm:py-4">
+            <p className="text-sm tracking-[0.28em] text-cyan-200/90 uppercase transition duration-300 hover:text-cyan-100 hover:[text-shadow:0_0_10px_rgba(34,211,238,0.65),0_0_24px_rgba(34,211,238,0.45)] sm:text-base md:text-lg">
+              Diff
             </p>
+
+            <PinContainer
+              title="linkedin.com/in/min-khant-than-swe"
+              href={linkedInProfile}
+              containerClassName="w-full max-w-3xl"
+            >
+              <div className="px-0.5 sm:px-1">
+                <div className="mb-2 flex flex-wrap items-center gap-2 sm:mb-3 sm:gap-3">
+                  <p className="text-lg font-semibold text-white sm:text-xl md:text-2xl">
+                    Min Khant Than Swe
+                  </p>
+                </div>
+
+                <p className="max-w-[65ch] text-[13px] leading-relaxed text-neutral-200 sm:text-sm md:text-base">
+                  Software Engineering student focused on fullstack application
+                  development with Java, Spring Boot, React, and Node.js.
+                  Experienced in enterprise backend support and client projects,
+                  with emphasis on reliable APIs, performance, and clean
+                  delivery.
+                </p>
+
+                <div className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
+                  <div className="h-px w-full bg-gradient-to-r from-cyan-300/0 via-cyan-300/45 to-cyan-300/0" />
+
+                  <p className="flex flex-wrap items-center gap-2 text-[10px] tracking-[0.08em] text-neutral-300 uppercase sm:text-[11px] sm:tracking-[0.12em] md:text-xs">
+                    <span className="rounded-full border border-cyan-300/35 bg-cyan-300/12 px-2 py-0.5 text-cyan-200">
+                      Now
+                    </span>
+                    Java Developer Intern @ Sunline (Bangkok)
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "5+ Projects Shipped",
+                      "2 Internships",
+                      "1 AI Capstone",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/15 bg-primary/45 px-2.5 py-1 text-[10px] text-neutral-200 sm:px-3 sm:text-[11px] md:text-xs"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-[10px] text-cyan-100/75 sm:text-[11px] md:text-xs">
+                    Tap or hover for 3D - Click for LinkedIn
+                  </p>
+                </div>
+              </div>
+            </PinContainer>
           </div>
-          <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
         </div>
         {/* Grid 2 */}
-        <div className="grid-default-color grid-2">
-          <div className="flex h-full w-full flex-col items-center justify-center gap-5 text-center">
+        <div className="group grid-default-color grid-2">
+          <ShineBorder
+            borderWidth={1}
+            duration={8}
+            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+            className="rounded-2xl"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_22%,rgba(51,194,204,0.18),transparent_48%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
+
+          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 text-center">
             <div className="space-y-2">
               <p className="text-xs tracking-[0.2em] text-cyan-300/90 uppercase [text-shadow:0_0_10px_rgba(34,211,238,0.35)]">
                 Professional Focus
@@ -90,17 +158,54 @@ const About = () => {
           </div>
         </div>
         {/* Grid 5 */}
-          <div className="grid-default-color grid-5">
-            <div className="z-10 w-[50%]">
+        <div className="group grid-default-color grid-5">
+          <ShineBorder
+            borderWidth={1}
+            duration={8}
+            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+            className="rounded-2xl"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(51,194,204,0.22),transparent_48%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
+
+          <div className="relative z-10 flex h-full flex-col gap-5 md:flex-row md:items-center md:gap-5">
+            <div className="space-y-2.5 md:w-[52%]">
               <p className="headtext">Tech Stack</p>
-              <p className="subtext">
-                My core stack includes Java, Python, React, Node.js, Spring
-                Boot, Django, and PostgreSQL, plus tools like Docker,
-                Git/GitHub, and foundational exposure to AWS and Kubernetes.
+              <p className="text-[13px] text-neutral-200 sm:text-sm md:text-base">
+                Backend-first fullstack development for scalable products and
+                reliable API delivery.
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {coreStack.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-cyan-300/35 bg-cyan-300/10 px-2.5 py-1 text-[10px] text-cyan-100 sm:px-3 sm:text-xs"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
+                <span className="text-cyan-200">Orbit map:</span> Inner ring
+                for frontend, outer ring for backend, data, and tools.
+              </p>
+
+              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
+                <span className="text-cyan-200">Tooling:</span> Docker,
+                Git/GitHub, PostgreSQL
+              </p>
+              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
+                <span className="text-cyan-200">Exploring:</span> AWS
+                deployment and Kubernetes operations
               </p>
             </div>
-          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
-            <Frameworks />
+
+            <div className="relative mx-auto h-52 w-full max-w-[19rem] sm:h-56 sm:max-w-[21rem] md:h-[16.5rem] md:w-[48%] md:max-w-none">
+              <Frameworks className="h-full" />
+            </div>
           </div>
         </div>
       </div>
