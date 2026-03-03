@@ -29,7 +29,7 @@ const ShineBorder = ({
         ...style,
       }}
       className={twMerge(
-        "pointer-events-none absolute inset-0 size-full rounded-[inherit] opacity-0 transition-opacity duration-200 will-change-[background-position] [animation-play-state:paused] group-hover:opacity-100 group-hover:[animation-play-state:running] group-focus-within:opacity-100 group-focus-within:[animation-play-state:running] group-active:opacity-100 group-active:[animation-play-state:running]",
+        "pointer-events-none absolute inset-0 size-full rounded-[inherit] opacity-0 transition-opacity duration-200 [animation-play-state:paused] group-hover:opacity-100 group-hover:[animation-play-state:running] group-focus-within:opacity-100 group-focus-within:[animation-play-state:running] group-active:opacity-100 group-active:[animation-play-state:running]",
         className
       )}
       {...props}

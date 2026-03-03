@@ -3,13 +3,9 @@ import ShineBorder from "../components/ShineBorder";
 
 const achievementToneStyles = {
   amber: {
-    badge:
-      "border-orange/40 bg-gradient-to-br from-orange/20 to-sand/20 text-sand",
     dot: "bg-orange",
   },
   pink: {
-    badge:
-      "border-fuchsia/40 bg-gradient-to-br from-fuchsia/20 to-lavender/20 text-pink-200",
     dot: "bg-fuchsia",
   },
 };
@@ -37,7 +33,7 @@ const EducationCard = ({
         className="rounded-2xl"
       />
 
-      <div className="flex flex-wrap items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-4">
         <div className="space-y-1">
           <p className="text-[11px] tracking-[0.18em] text-aqua/80 uppercase">
             Education
@@ -47,7 +43,7 @@ const EducationCard = ({
           </h3>
           <p className="text-sm text-neutral-300 md:text-base">{institution}</p>
         </div>
-        <span className="rounded-full border border-white/15 bg-midnight/70 px-3 py-1 text-xs text-neutral-300">
+        <span className="min-w-[8.75rem] shrink-0 whitespace-nowrap rounded-full border border-white/10 bg-midnight/55 px-3 py-1.5 text-center text-xs leading-none text-neutral-300">
           {date}
         </span>
       </div>
@@ -76,7 +72,6 @@ const AchievementCard = ({
   title,
   description,
   date,
-  icon,
   location,
   tone,
   index,
@@ -98,20 +93,11 @@ const AchievementCard = ({
         className="rounded-2xl"
       />
 
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          {icon && (
-            <div
-              className={`grid size-11 place-items-center rounded-xl border text-xl shadow-[0_0_18px_rgba(124,58,237,0.2)] ${toneStyle.badge}`}
-            >
-              {icon}
-            </div>
-          )}
-          <h3 className="text-base font-semibold leading-snug text-white md:text-lg">
-            {title}
-          </h3>
-        </div>
-        <span className="rounded-full border border-white/15 bg-midnight/70 px-3 py-1 text-xs text-neutral-300">
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="pr-2 text-base font-semibold leading-snug text-white md:text-lg">
+          {title}
+        </h3>
+        <span className="min-w-[8.75rem] shrink-0 whitespace-nowrap rounded-full border border-white/10 bg-midnight/55 px-3 py-1.5 text-center text-xs leading-none text-neutral-300">
           {date}
         </span>
       </div>
@@ -164,7 +150,6 @@ export default function EducationAndAchievements() {
       description:
         "Passed the competitive group hackathon/interview challenge at Issa Compass, demonstrating collaboration, communication, and structured problem-solving under pressure.",
       date: "March 2025",
-      icon: "🏆",
       location: "Bangkok, Thailand",
       tone: "amber",
     },
@@ -173,7 +158,6 @@ export default function EducationAndAchievements() {
       description:
         "Showcased RepoAI at the Software Engineering Open House, presenting AI-driven GitHub workflows, system architecture, and project outcomes to students and faculty.",
       date: "February 2025",
-      icon: "🤖",
       location: "Chiang Rai, Thailand",
       tone: "pink",
     },

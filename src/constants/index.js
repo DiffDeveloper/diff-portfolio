@@ -2,14 +2,18 @@ export const myProjects = [
   {
     id: 1,
     title: "Lumonixlab Landing Page",
+    featured: false,
     description:
       "A fullstack project showcasing modern web development with responsive design and interactive features.",
+    outcome:
+      "Delivered a modern marketing experience with strong responsiveness and polished interactions.",
     subDescription: [
       "Built a comprehensive landing page using modern web technologies for optimal user experience.",
       "Implemented responsive design principles ensuring compatibility across all devices.",
       "Integrated interactive elements and smooth animations for enhanced user engagement.",
       "Developed with performance and scalability in mind for future growth.",
     ],
+    liveUrl: null,
     href: null,
     logo: "",
     image: "/assets/projects/Lumonixlab.png",
@@ -39,14 +43,18 @@ export const myProjects = [
   {
     id: 2,
     title: "RepoAi AI Senior Project",
+    featured: true,
     description:
       "An advanced AI-powered application developed as a senior capstone project demonstrating cutting-edge technology integration.",
+    outcome:
+      "Showcased AI-driven GitHub workflow automation as a capstone solution with practical developer value.",
     subDescription: [
       "Developed an AI-powered application using modern machine learning frameworks and APIs.",
       "Implemented natural language processing capabilities for enhanced user interaction.",
       "Built a robust backend system to handle AI model integration and data processing.",
       "Created an intuitive user interface for seamless AI-powered experiences.",
     ],
+    liveUrl: null,
     href: "https://github.com/Meo-6531503185/Repo-AI",
     logo: "",
     image: "/assets/projects/repoai.png",
@@ -69,21 +77,25 @@ export const myProjects = [
       {
         id: 4,
         name: "Firebase",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-firebase.svg",
       },
     ],
   },
   {
     id: 3,
     title: "Incident Reporting Project",
+    featured: true,
     description:
       "A comprehensive incident management system designed to streamline reporting and tracking of workplace incidents.",
+    outcome:
+      "Improved incident visibility and reporting flow with a structured fullstack tracking experience.",
     subDescription: [
       "Developed a full-featured incident reporting system with user authentication and role management.",
       "Implemented real-time incident tracking and status updates for efficient workflow management.",
       "Created comprehensive reporting and analytics dashboards for data-driven insights.",
       "Built with security and compliance requirements in mind for enterprise use.",
     ],
+    liveUrl: null,
     href: "https://github.com/moepyaePK/reportify",
     logo: "",
     image: "/assets/projects/Reportify.jpg",
@@ -101,26 +113,30 @@ export const myProjects = [
       {
         id: 3,
         name: "Firebase",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-firebase.svg",
       },
       {
         id: 4,
         name: "Google API",
-        path: "/assets/logos/microsoft.svg",
+        path: "",
       },
     ],
   },
   {
     id: 4,
     title: "Java Springboot Game Project",
+    featured: false,
     description:
       "An interactive Ultimate Tic Tac Toe game built with Java Spring Boot, featuring advanced game logic and multiplayer capabilities.",
+    outcome:
+      "Implemented complex game rules and multiplayer-ready backend flow with smooth gameplay handling.",
     subDescription: [
       "Developed a sophisticated Ultimate Tic Tac Toe game with enhanced rules and gameplay mechanics.",
       "Implemented Spring Boot backend for robust game state management and user sessions.",
       "Created an engaging user interface with smooth animations and responsive design.",
       "Added multiplayer functionality allowing players to compete online in real-time.",
     ],
+    liveUrl: null,
     href: "https://github.com/maefahluang-uni/99-project-ultimatetictactoe_group2",
     logo: "",
     image: "/assets/projects/ulttictactoe.png",
@@ -138,26 +154,30 @@ export const myProjects = [
       {
         id: 3,
         name: "Docker",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-docker.svg",
       },
       {
         id: 4,
         name: "Firebase",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-firebase.svg",
       },
     ],
   },
   {
     id: 5,
     title: "Mobile Flutter Restaurant Project",
+    featured: false,
     description:
       "A comprehensive mobile application for restaurant management and customer ordering built with Flutter.",
+    outcome:
+      "Built an end-to-end restaurant ordering flow for mobile users and admin-side operations.",
     subDescription: [
       "Developed a cross-platform mobile app using Flutter for both iOS and Android platforms.",
       "Implemented restaurant menu management, order processing, and customer management systems.",
       "Integrated payment processing and real-time order tracking for enhanced customer experience.",
       "Created an intuitive admin panel for restaurant staff to manage operations efficiently.",
     ],
+    liveUrl: null,
     href: "https://github.com/siss-hmue/sushires_project",
     logo: "",
     image: "/assets/projects/heroisushibar.png",
@@ -165,7 +185,7 @@ export const myProjects = [
       {
         id: 1,
         name: "Flutter",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-flutter-logo.svg",
       },
       {
         id: 2,
@@ -175,12 +195,7 @@ export const myProjects = [
       {
         id: 3,
         name: "Firebase",
-        path: "/assets/logos/microsoft.svg",
-      },
-      {
-        id: 4,
-        name: "Deployed",
-        path: "/assets/logos/microsoft.svg",
+        path: "/assets/logos/icons8-firebase.svg",
       },
     ],
   },

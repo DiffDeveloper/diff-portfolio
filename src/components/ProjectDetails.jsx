@@ -4,10 +4,12 @@ import { useEffect } from "react";
 const ProjectDetails = ({
   title,
   description,
+  outcome,
   subDescription,
   image,
   tags,
   href,
+  liveUrl,
   closeModal,
 }) => {
   useEffect(() => {
@@ -69,10 +71,24 @@ const ProjectDetails = ({
               <h5 className="text-2xl font-semibold text-white sm:text-3xl">
                 {title}
               </h5>
+              <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+                Problem
+              </p>
               <p className="text-sm leading-relaxed text-neutral-300 sm:text-base">
                 {description}
               </p>
             </div>
+
+            {outcome && (
+              <div className="rounded-xl border border-cyan-300/25 bg-cyan-300/8 px-4 py-3">
+                <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+                  Result
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-200 sm:text-base">
+                  {outcome}
+                </p>
+              </div>
+            )}
 
             {tags?.length > 0 && (
               <div className="flex flex-wrap gap-2">
@@ -88,6 +104,9 @@ const ProjectDetails = ({
             )}
 
             <div className="space-y-3">
+              <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+                What I Built
+              </p>
               {subDescription.map((subDesc, index) => (
                 <p
                   key={`${title}-detail-${index}`}
@@ -106,6 +125,18 @@ const ProjectDetails = ({
                 Close
               </button>
 
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/45 bg-cyan-300/10 px-5 py-2 text-sm font-medium text-cyan-200 transition hover:border-cyan-300/80 hover:bg-cyan-300/20"
+                >
+                  Live Demo
+                  <img src="assets/arrow-up.svg" className="size-4" alt="Open" />
+                </a>
+              )}
+
               {href && (
                 <a
                   href={href}
@@ -113,7 +144,7 @@ const ProjectDetails = ({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-cyan-300/45 bg-cyan-300/10 px-5 py-2 text-sm font-medium text-cyan-200 transition hover:border-cyan-300/80 hover:bg-cyan-300/20"
                 >
-                  View Project
+                  Source Code
                   <img src="assets/arrow-up.svg" className="size-4" alt="Open" />
                 </a>
               )}

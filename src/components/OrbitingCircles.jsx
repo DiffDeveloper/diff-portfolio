@@ -8,6 +8,8 @@ export function OrbitingCircles({
   duration = 20,
   radius = 160,
   path = true,
+  pathStroke = "rgba(255,255,255,0.1)",
+  pathStrokeWidth = 1,
   iconSize = 30,
   speed = 1,
   ...props
@@ -25,11 +27,12 @@ export function OrbitingCircles({
           className="absolute inset-0 pointer-events-none size-full"
         >
           <circle
-            className="stroke-1 stroke-white/10"
             cx="50%"
             cy="50%"
             r={radius}
             fill="none"
+            stroke={pathStroke}
+            strokeWidth={pathStrokeWidth}
           />
         </svg>
       )}

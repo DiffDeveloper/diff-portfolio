@@ -23,7 +23,7 @@ const About = () => {
   return (
     <section className="c-space section-spacing" id="about">
       <h2 className="text-heading">About Me</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
+      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[minmax(18rem,auto)] lg:auto-rows-[18rem]">
         {/* Grid 1 */}
         <div className="grid-default-color grid-1">
           <img
@@ -169,8 +169,8 @@ const About = () => {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(51,194,204,0.22),transparent_48%)]" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
 
-          <div className="relative z-10 flex h-full flex-col gap-5 md:flex-row md:items-center md:gap-5">
-            <div className="space-y-2.5 md:w-[52%]">
+          <div className="relative z-10 flex h-full flex-col gap-5 lg:flex-row lg:items-center lg:gap-5">
+            <div className="space-y-2.5 lg:w-[52%]">
               <p className="headtext">Tech Stack</p>
               <p className="text-[13px] text-neutral-200 sm:text-sm md:text-base">
                 Backend-first fullstack development for scalable products and
@@ -203,8 +203,8 @@ const About = () => {
               </p>
             </div>
 
-            <div className="relative mx-auto h-52 w-full max-w-[19rem] sm:h-56 sm:max-w-[21rem] md:h-[16.5rem] md:w-[48%] md:max-w-none">
-              <Frameworks className="h-full" />
+            <div className="relative mx-auto h-56 w-full max-w-[22rem] overflow-hidden sm:h-60 sm:max-w-[24rem] md:h-[19rem] md:max-w-[27rem] lg:mx-0 lg:h-[17.5rem] lg:w-[50%] lg:max-w-none">
+              <Frameworks className="absolute bottom-[-28%] right-[-24%] h-[128%] w-[128%] sm:bottom-[-26%] sm:right-[-28%] md:bottom-auto md:top-1/2 md:right-[-18%] md:h-[118%] md:w-[118%] md:-translate-y-1/2 lg:right-[-12%]" />
             </div>
           </div>
         </div>

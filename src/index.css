@@ -135,7 +135,7 @@ body {
   @apply row-span-1 md:col-span-2 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
 }
 .grid-5 {
-  @apply row-span-1 md:col-span-4 min-h-[22rem] sm:min-h-[24rem] md:h-full md:min-h-0 relative overflow-hidden hover:-translate-y-1 duration-200;
+  @apply row-span-1 md:col-span-4 min-h-[22rem] sm:min-h-[24rem] md:min-h-[28rem] lg:h-full lg:min-h-0 relative overflow-hidden hover:-translate-y-1 duration-200;
 }
 
 .grid-default-color {

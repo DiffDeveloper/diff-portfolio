@@ -6,6 +6,7 @@ export function Frameworks({ className = "" }) {
     { name: "css3", ext: "svg" },
     { name: "javascript", ext: "svg" },
     { name: "react", ext: "svg" },
+    { name: "icons8-vue-js", ext: "svg" },
     { name: "tailwindcss", ext: "svg" },
     { name: "vitejs", ext: "svg" },
   ];
@@ -22,16 +23,20 @@ export function Frameworks({ className = "" }) {
     { name: "aws-svgrepo-com", ext: "svg" },
     { name: "kubernetes-svgrepo-com", ext: "svg" },
     { name: "auth0", ext: "svg" },
+    { name: "icons8-docker", ext: "svg" },
+    { name: "icons8-firebase", ext: "svg" },
   ];
 
   return (
     <div
-      className={`relative flex h-[15rem] w-full flex-col items-center justify-center ${className}`}
+      className={`relative flex h-[17rem] w-full flex-col items-center justify-center ${className}`}
     >
       <OrbitingCircles
-        radius={68}
-        speed={1.05}
-        iconSize="clamp(1.2rem, 3.6vw, 1.75rem)"
+        radius={86}
+        speed={0.85}
+        pathStroke="rgba(169, 215, 237, 0.28)"
+        pathStrokeWidth={1.15}
+        iconSize="clamp(1.28rem, 3.5vw, 1.78rem)"
       >
         {frontendSkills.map((skill) => (
           <Icon
@@ -43,10 +48,12 @@ export function Frameworks({ className = "" }) {
       </OrbitingCircles>
 
       <OrbitingCircles
-        radius={108}
+        radius={156}
         reverse
-        speed={1.25}
-        iconSize="clamp(0.95rem, 2.8vw, 1.35rem)"
+        speed={1.05}
+        pathStroke="rgba(169, 215, 237, 0.16)"
+        pathStrokeWidth={1}
+        iconSize="clamp(1.22rem, 3.15vw, 1.62rem)"
       >
         {backendDataToolSkills.map((skill) => (
           <Icon
@@ -64,6 +71,6 @@ const Icon = ({ src, alt }) => (
   <img
     src={src}
     alt={alt}
-    className="size-full object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.18)] duration-200 hover:scale-110"
+    className="size-full object-contain drop-shadow-[0_0_9px_rgba(34,211,238,0.2)] duration-200 hover:scale-[1.04]"
   />
 );
