@@ -32,11 +32,11 @@ export function Frameworks({ className = "" }) {
       className={`relative flex h-[17rem] w-full flex-col items-center justify-center ${className}`}
     >
       <OrbitingCircles
-        radius={86}
+        radius={64}
         speed={0.85}
         pathStroke="rgba(169, 215, 237, 0.28)"
         pathStrokeWidth={1.15}
-        iconSize="clamp(1.28rem, 3.5vw, 1.78rem)"
+        iconSize="clamp(1.12rem, 3vw, 1.56rem)"
       >
         {frontendSkills.map((skill) => (
           <Icon
@@ -48,12 +48,12 @@ export function Frameworks({ className = "" }) {
       </OrbitingCircles>
 
       <OrbitingCircles
-        radius={156}
+        radius={108}
         reverse
         speed={1.05}
         pathStroke="rgba(169, 215, 237, 0.16)"
         pathStrokeWidth={1}
-        iconSize="clamp(1.22rem, 3.15vw, 1.62rem)"
+        iconSize="clamp(1.06rem, 2.7vw, 1.42rem)"
       >
         {backendDataToolSkills.map((skill) => (
           <Icon

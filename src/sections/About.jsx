@@ -209,8 +209,8 @@ const About = () => {
               </p>
             </div>
 
-            <div className="relative mx-auto h-56 w-full max-w-[22rem] overflow-hidden sm:h-60 sm:max-w-[24rem] md:h-[19rem] md:max-w-[27rem] lg:mx-0 lg:h-[17.5rem] lg:w-[50%] lg:max-w-none">
-              <Frameworks className="absolute bottom-[-28%] right-[-24%] h-[128%] w-[128%] sm:bottom-[-26%] sm:right-[-28%] md:bottom-auto md:top-1/2 md:right-[-18%] md:h-[118%] md:w-[118%] md:-translate-y-1/2 lg:right-[-12%]" />
+            <div className="relative mx-auto h-64 w-full max-w-[20rem] sm:h-[17rem] sm:max-w-[21rem] md:h-[18rem] md:max-w-[22.5rem] lg:mx-0 lg:ml-auto lg:h-[17.5rem] lg:w-[46%] lg:max-w-[23rem]">
+              <Frameworks className="absolute inset-0 h-full w-full" />
             </div>
           </div>
         </div>
