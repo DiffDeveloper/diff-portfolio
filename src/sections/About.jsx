@@ -1,5 +1,5 @@
 import { Globe } from "../components/globe";
-import CopyEmailButton from "../components/CopyEmailButton";
+import AvailabilityGameCard from "../components/AvailabilityGameCard";
 import { Frameworks } from "../components/Frameworks";
 import Marquee from "../components/Marquee";
 import { PinContainer } from "../components/PinContainer";
@@ -149,12 +149,18 @@ const About = () => {
           </figure>
         </div>
         {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
-            <CopyEmailButton />
+        <div className="group grid-default-color grid-4">
+          <ShineBorder
+            borderWidth={1}
+            duration={8}
+            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+            className="rounded-2xl"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(51,194,204,0.16),transparent_52%)]" />
+
+          <div className="relative z-10 h-full">
+            <AvailabilityGameCard />
           </div>
         </div>
         {/* Grid 5 */}
