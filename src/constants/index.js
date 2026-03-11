@@ -43,7 +43,7 @@ export const myProjects = [
   {
     id: 2,
     title: "RepoAi AI Senior Project",
-    featured: true,
+    featured: false,
     description:
       "An advanced AI-powered application developed as a senior capstone project demonstrating cutting-edge technology integration.",
     outcome:
@@ -84,7 +84,7 @@ export const myProjects = [
   {
     id: 3,
     title: "Incident Reporting Project",
-    featured: true,
+    featured: false,
     description:
       "A comprehensive incident management system designed to streamline reporting and tracking of workplace incidents.",
     outcome:
@@ -124,12 +124,12 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "Java Springboot Game Project",
+    title: "Ultimate Tic Tac Toe Platform",
     featured: false,
     description:
-      "An interactive Ultimate Tic Tac Toe game built with Java Spring Boot, featuring advanced game logic and multiplayer capabilities.",
+      "A multiplayer-capable Ultimate Tic Tac Toe platform built with Java Spring Boot, featuring complex rules, game-state validation, and real-time play flow.",
     outcome:
-      "Implemented complex game rules and multiplayer-ready backend flow with smooth gameplay handling.",
+      "Delivered a backend-first game system that handled advanced game logic, synchronized sessions, and smooth match progression.",
     subDescription: [
       "Developed a sophisticated Ultimate Tic Tac Toe game with enhanced rules and gameplay mechanics.",
       "Implemented Spring Boot backend for robust game state management and user sessions.",
@@ -199,6 +199,113 @@ export const myProjects = [
       },
     ],
   },
+  {
+    id: 6,
+    title: "Multi-Vendor E-Commerce Platform",
+    featured: true,
+    description:
+      "A production-minded multi-vendor commerce platform with customer storefront, vendor operations, and admin control panel.",
+    outcome:
+      "Delivered a scalable fullstack architecture with Stripe payment lifecycle handling, vendor onboarding workflows, and role-based access across the platform.",
+    subDescription: [
+      "Built a monorepo architecture using Next.js frontend and NestJS backend with shared TypeScript contracts.",
+      "Implemented reservation-aware checkout, multi-vendor cart logic, and order workflows for customer and vendor journeys.",
+      "Integrated Stripe payment intents, webhook verification, and payment reconciliation endpoints for transaction reliability.",
+      "Designed operational flows for admin moderation, vendor application review lifecycle, and role-specific workspaces.",
+    ],
+    liveUrl: null,
+    href: "https://github.com/DiffDeveloper/multi-vendor-e-commerce",
+    logo: "",
+    image: "/assets/projects/ecommerce.png",
+    tags: [
+      {
+        id: 1,
+        name: "TypeScript",
+        path: "",
+      },
+      {
+        id: 2,
+        name: "Next.js",
+        path: "",
+      },
+      {
+        id: 3,
+        name: "NestJS",
+        path: "",
+      },
+      {
+        id: 4,
+        name: "Prisma",
+        path: "",
+      },
+      {
+        id: 5,
+        name: "PostgreSQL",
+        path: "/assets/logos/postgre.png",
+      },
+      {
+        id: 6,
+        name: "Stripe",
+        path: "/assets/logos/stripe.svg",
+      },
+      {
+        id: 7,
+        name: "TurboRepo",
+        path: "",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Diff Expense Tracker (AI Finance Coach)",
+    featured: true,
+    description:
+      "A fullstack personal finance platform with month-based expense tracking, planning controls, and AI-powered budget guidance.",
+    outcome:
+      "Built a practical financial dashboard that combines structured reporting, monthly close workflows, and context-aware AI suggestions for better spending decisions.",
+    subDescription: [
+      "Developed a Nuxt 3 fullstack app with secure auth flows, session handling, and protected dashboard routes.",
+      "Implemented expense CRUD, month-close locking, and optional monthly income and savings planning workflows.",
+      "Added financial insights including trend views, daily/category breakdowns, and monthly performance summaries.",
+      "Integrated optional OpenAI-powered advisor logic with relevance filtering and fallback rule-based guidance.",
+    ],
+    liveUrl: "https://expense-tracker-six-azure.vercel.app",
+    href: "https://github.com/DiffDeveloper/Expense-Tracker",
+    logo: "",
+    image: "/assets/projects/expense-tracker.png",
+    tags: [
+      {
+        id: 1,
+        name: "Nuxt 3",
+        path: "",
+      },
+      {
+        id: 2,
+        name: "TypeScript",
+        path: "",
+      },
+      {
+        id: 3,
+        name: "Drizzle ORM",
+        path: "",
+      },
+      {
+        id: 4,
+        name: "PostgreSQL",
+        path: "/assets/logos/postgre.png",
+      },
+      {
+        id: 5,
+        name: "Tailwind CSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 6,
+        name: "OpenAI API",
+        path: "",
+      },
+    ],
+  },
 ];
 
 export const mySocials = [
@@ -225,9 +332,9 @@ export const experiences = [
     job: "Sunline Technology (Bangkok, Onsite)",
     date: "January 2026 - Present",
     contents: [
-      "Supported enterprise Java backend systems using Spring Boot (MVC) within core banking platforms.",
-      "Monitored defects, batch processes, and system stability across SIT and UAT environments.",
-      "Tracked issues in Jira/Mone, assisted with log analysis, and supported backend testing and API documentation.",
+      "Supported enterprise Spring Boot (MVC) services within core banking workflows across SIT and UAT environments.",
+      "Investigated defects, monitored batch processes, and performed log analysis to maintain backend stability during test cycles.",
+      "Tracked issues in Jira and Mone, while preparing API documentation and backend test support artifacts for smoother team handoff.",
     ],
   },
   {
@@ -235,8 +342,9 @@ export const experiences = [
     job: "Lumonix Lab AI (Remote)",
     date: "June 2025 - August 2025",
     contents: [
-      "Built and supported full-stack features for AI-driven web applications using React and Node.js.",
-      "Worked with cross-functional teams to integrate APIs, test features, and improve application performance.",
+      "Built and maintained full-stack features for AI-driven web applications using React and Node.js.",
+      "Integrated APIs, validated feature behavior, and resolved delivery issues in collaboration with cross-functional teammates.",
+      "Improved performance and UI consistency across production-facing modules during sprint-based releases.",
     ],
   },
   {
@@ -244,10 +352,9 @@ export const experiences = [
     job: "Freelance - Chiang Rai, Thailand",
     date: "February 2024 - December 2024",
     contents: [
-      "Developed web applications using Flutter and Python.",
-      "Implemented frontend features with React and Bootstrap, and built backend services with Django.",
-      "Managed database operations with Postgres.",
-      "Collaborated directly with clients to gather requirements and deliver solutions.",
+      "Delivered client-focused web applications using Flutter and Python for practical business workflows.",
+      "Implemented frontend features with React and Bootstrap, and built backend services using Django.",
+      "Managed PostgreSQL data operations and collaborated directly with clients to convert requirements into deployable releases.",
     ],
   },
   {
@@ -255,9 +362,9 @@ export const experiences = [
     job: "Freelance (Academic Projects) - Chiang Rai, Thailand",
     date: "January 2024 - May 2024",
     contents: [
-      "Developed and deployed a Java-based web application game using Spring Boot and Docker, focusing on backend logic and performance.",
+      "Developed and deployed a Java-based web application game using Spring Boot and Docker, with focus on backend reliability and performance.",
       "Built a full-stack incident-reporting platform using React, Node.js, Firebase, and Google Maps APIs.",
-      "Worked with senior reviewers to refine requirements and iteratively improve application features.",
+      "Worked with senior reviewers to refine requirements and iteratively improve implementation quality.",
     ],
   },
 ];

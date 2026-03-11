@@ -56,7 +56,7 @@ const Contact = () => {
         className="absolute inset-0 -z-50"
         quantity={62}
         ease={80}
-        color={"#9adfe5"}
+        color={"#f0f0f0"}
       />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
@@ -119,7 +119,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
+            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-gradient-to-r from-white to-neutral-400 text-primary hover-animation"
           >
             {!isLoading ? "Send" : "Sending..."}
           </button>

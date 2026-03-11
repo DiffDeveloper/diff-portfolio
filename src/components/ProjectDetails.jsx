@@ -45,12 +45,12 @@ const ProjectDetails = ({
         onClick={(event) => event.stopPropagation()}
       >
         <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-midnight/95 px-4 py-3 backdrop-blur sm:px-6">
-          <p className="max-w-[80%] truncate text-sm tracking-[0.08em] text-cyan-300/90 uppercase">
+          <p className="max-w-[80%] truncate text-sm tracking-[0.08em] text-neutral-200/90 uppercase">
             Project Overview
           </p>
           <button
             onClick={closeModal}
-            className="grid size-9 place-items-center rounded-full border border-white/15 bg-navy/80 transition hover:border-cyan-300/70 hover:bg-cyan-300/10"
+            className="grid size-9 place-items-center rounded-full border border-white/15 bg-navy/80 transition hover:border-white/70 hover:bg-white/10"
             aria-label="Close project details"
           >
             <img src="assets/close.svg" className="size-5" alt="Close" />
@@ -71,7 +71,7 @@ const ProjectDetails = ({
               <h5 className="text-2xl font-semibold text-white sm:text-3xl">
                 {title}
               </h5>
-              <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+              <p className="text-[11px] tracking-[0.16em] text-neutral-100 uppercase">
                 Problem
               </p>
               <p className="text-sm leading-relaxed text-neutral-300 sm:text-base">
@@ -80,8 +80,8 @@ const ProjectDetails = ({
             </div>
 
             {outcome && (
-              <div className="rounded-xl border border-cyan-300/25 bg-cyan-300/8 px-4 py-3">
-                <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+              <div className="rounded-xl border border-white/25 bg-white/8 px-4 py-3">
+                <p className="text-[11px] tracking-[0.16em] text-neutral-100 uppercase">
                   Result
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-200 sm:text-base">
@@ -104,7 +104,7 @@ const ProjectDetails = ({
             )}
 
             <div className="space-y-3">
-              <p className="text-[11px] tracking-[0.16em] text-cyan-200 uppercase">
+              <p className="text-[11px] tracking-[0.16em] text-neutral-100 uppercase">
                 What I Built
               </p>
               {subDescription.map((subDesc, index) => (
@@ -120,7 +120,7 @@ const ProjectDetails = ({
             <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
               <button
                 onClick={closeModal}
-                className="rounded-full border border-white/20 px-5 py-2 text-sm text-neutral-200 transition hover:border-cyan-300/70 hover:text-white"
+                className="rounded-full border border-white/20 px-5 py-2 text-sm text-neutral-200 transition hover:border-white/70 hover:text-white"
               >
                 Close
               </button>
@@ -130,7 +130,7 @@ const ProjectDetails = ({
                   href={liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/45 bg-cyan-300/10 px-5 py-2 text-sm font-medium text-cyan-200 transition hover:border-cyan-300/80 hover:bg-cyan-300/20"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:border-white/80 hover:bg-white/20"
                 >
                   Live Demo
                   <img src="assets/arrow-up.svg" className="size-4" alt="Open" />
@@ -142,7 +142,7 @@ const ProjectDetails = ({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/45 bg-cyan-300/10 px-5 py-2 text-sm font-medium text-cyan-200 transition hover:border-cyan-300/80 hover:bg-cyan-300/20"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:border-white/80 hover:bg-white/20"
                 >
                   Source Code
                   <img src="assets/arrow-up.svg" className="size-4" alt="Open" />

@@ -1,78 +1,53 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-function Navigation() {
+
+const NAV_ITEMS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "tech", label: "Tech" },
+  { id: "projects", label: "Projects" },
+  { id: "experiences", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "contact", label: "Contact" },
+];
+
+function Navigation({ onNavigate = () => {} }) {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
       });
     }
   };
 
   return (
     <ul className="nav-ul">
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('home')}
-          style={{ cursor: 'pointer' }}
-        >
-          Home
-        </a>
-      </li>
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('about')}
-          style={{ cursor: 'pointer' }}
-        >
-          About
-        </a>
-      </li>
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('projects')}
-          style={{ cursor: 'pointer' }}
-        >
-          Projects
-        </a>
-      </li>
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('experiences')}
-          style={{ cursor: 'pointer' }}
-        >
-          Experience
-        </a>
-      </li>
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('education')}
-          style={{ cursor: 'pointer' }}
-        >
-          Education
-        </a>
-      </li>
-      <li className="nav-li">
-        <a 
-          className="nav-link" 
-          onClick={() => scrollToSection('contact')}
-          style={{ cursor: 'pointer' }}
-        >
-          Contact
-        </a>
-      </li>
+      {NAV_ITEMS.map((item) => (
+        <li key={item.id} className="nav-li">
+          <a
+            href={`#${item.id}`}
+            className="nav-link"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection(item.id);
+              onNavigate();
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
       <div className="mx-auto c-space max-w-7xl">
@@ -89,12 +64,12 @@ const Navbar = () => {
           >
             <img
               src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
+              className="h-6 w-6"
               alt="toggle"
             />
           </button>
           <nav className="hidden sm:flex">
-            <Navigation />
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
         </div>
       </div>
@@ -107,7 +82,7 @@ const Navbar = () => {
           transition={{ duration: 1 }}
         >
           <nav className="pb-5">
-            <Navigation />
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
         </motion.div>
       )}

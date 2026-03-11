@@ -115,7 +115,7 @@ const BackgroundBeams = memo(({ className = "" }) => {
           <path
             key={`base-${index}`}
             d={path}
-            stroke="rgba(141,224,233,0.12)"
+            stroke="rgba(255,255,255,0.1)"
             strokeWidth="0.7"
           />
         ))}
@@ -157,10 +157,10 @@ const BackgroundBeams = memo(({ className = "" }) => {
                     }
               }
             >
-              <stop stopColor="#22d3ee" stopOpacity="0" />
-              <stop stopColor="#22d3ee" />
-              <stop offset="36%" stopColor="#57db96" />
-              <stop offset="100%" stopColor="#57db96" stopOpacity="0" />
+              <stop stopColor="#ffffff" stopOpacity="0" />
+              <stop stopColor="#ffffff" />
+              <stop offset="36%" stopColor="#cfcfcf" />
+              <stop offset="100%" stopColor="#cfcfcf" stopOpacity="0" />
             </motion.linearGradient>
           ))}
         </defs>

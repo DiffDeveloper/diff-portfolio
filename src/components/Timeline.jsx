@@ -23,7 +23,10 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="c-space section-spacing" ref={containerRef}>
+    <div className="relative c-space section-spacing" ref={containerRef}>
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[56%] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.09),transparent_72%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 [mask-image:linear-gradient(to_bottom,black_20%,transparent_90%)] bg-[repeating-linear-gradient(102deg,transparent_0_72px,rgba(255,255,255,0.03)_72px_74px,transparent_74px_148px)]" />
+
       <h2 className="text-heading">My Work Experience</h2>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => {
@@ -61,13 +64,21 @@ export const Timeline = ({ data }) => {
               <div className="relative w-full pl-20 pr-4 md:pl-4">
                 <div className="block mb-4 text-2xl font-bold text-left text-neutral-300 md:hidden ">
                   <h3>{item.date}</h3>
+                  <h3 className="text-xl text-neutral-400">{item.title}</h3>
                   <h3 className={mobileJobClassName}>{item.job}</h3>
                 </div>
-                {item.contents.map((content, index) => (
-                  <p className="mb-3 font-normal text-neutral-400" key={index}>
-                    {content}
-                  </p>
-                ))}
+
+                <ul className="space-y-3">
+                  {item.contents.map((content, contentIndex) => (
+                    <li
+                      className="relative overflow-hidden rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm leading-relaxed text-neutral-200/95 backdrop-blur-[1px]"
+                      key={contentIndex}
+                    >
+                      <span className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-white/0 via-white/75 to-white/0" />
+                      <span className="block pl-2">{content}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           );
@@ -83,7 +94,7 @@ export const Timeline = ({ data }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-lavender/50 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-white/85 via-white/40 to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
       </div>

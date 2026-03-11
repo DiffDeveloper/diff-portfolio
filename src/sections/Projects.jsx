@@ -8,11 +8,10 @@ const Projects = () => {
   return (
     <section id="projects" className="relative c-space section-spacing">
       <div className="space-y-3">
-        <h2 className="text-heading">My Selected Projects</h2>
+        <h2 className="text-heading">Featured Projects</h2>
         <p className="max-w-3xl text-sm text-neutral-300 md:text-base">
-          A curated set of projects focused on practical problem-solving,
-          production-minded engineering, and clean delivery across fullstack
-          systems.
+          High-impact builds that highlight backend ownership, fullstack system
+          design, and production-ready implementation.
         </p>
       </div>
 

@@ -36,7 +36,7 @@ const Project = ({
           <ShineBorder
             borderWidth={1}
             duration={8}
-            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+            shineColor={["#ffffff", "#c7c7c7", "#ffffff"]}
             className="rounded-2xl"
           />
         )}
@@ -70,7 +70,7 @@ const Project = ({
             </p>
 
             {outcome && (
-              <p className="text-sm leading-relaxed text-cyan-200/95">
+              <p className="text-sm leading-relaxed text-neutral-100">
                 <span className="font-medium">Outcome:</span> {outcome}
               </p>
             )}
@@ -95,19 +95,19 @@ const Project = ({
           </div>
 
           <div className="mt-auto flex flex-wrap items-center gap-2 pt-1">
-            <button
-              onClick={() => setIsOpen(true)}
-              className="rounded-full border border-cyan-300/45 bg-cyan-300/10 px-4 py-2 text-xs font-medium text-cyan-100 transition hover:border-cyan-300/80 hover:bg-cyan-300/20"
-            >
-              View Case Study
-            </button>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="rounded-full border border-white/45 bg-white/10 px-4 py-2 text-xs font-medium text-white transition hover:border-white/80 hover:bg-white/20"
+              >
+                View Case Study
+              </button>
 
             {liveUrl && (
               <a
                 href={liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-xs text-neutral-200 transition hover:border-cyan-300/70 hover:text-white"
+                className="rounded-full border border-white/15 px-4 py-2 text-xs text-neutral-200 transition hover:border-white/70 hover:text-white"
               >
                 Live Demo
               </a>
@@ -118,7 +118,7 @@ const Project = ({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-xs text-neutral-200 transition hover:border-cyan-300/70 hover:text-white"
+                className="rounded-full border border-white/15 px-4 py-2 text-xs text-neutral-200 transition hover:border-white/70 hover:text-white"
               >
                 Source Code
               </a>

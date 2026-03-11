@@ -1,6 +1,4 @@
 import { Globe } from "../components/globe";
-import AvailabilityGameCard from "../components/AvailabilityGameCard";
-import { Frameworks } from "../components/Frameworks";
 import Marquee from "../components/Marquee";
 import { PinContainer } from "../components/PinContainer";
 import ShineBorder from "../components/ShineBorder";
@@ -9,19 +7,25 @@ const About = () => {
   const linkedInProfile =
     "https://www.linkedin.com/in/min-khant-than-swe-29b877323/";
 
-  const coreExpertise = [
+  const coreStack = [
+    "C++",
     "Java",
+    "Python",
     "Spring Boot",
     "React",
+    "Next.js",
+    "NestJS",
+    "Firebase",
+    "PostgreSQL",
+    "JavaScript",
+    "Docker",
+    "Tailwind CSS",
     "Node.js",
-    "REST APIs",
-    "System Monitoring",
+    "Django",
   ];
 
-  const coreStack = ["Java", "Spring Boot", "React", "Node.js"];
-
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="c-space mt-20 md:mt-24" id="about">
       <h2 className="text-heading">About Me</h2>
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[minmax(18rem,auto)] lg:auto-rows-[18rem]">
         {/* Grid 1 */}
@@ -31,11 +35,11 @@ const About = () => {
             className="absolute inset-0 h-full w-full object-cover object-[60%_22%] opacity-60"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_26%_14%,rgba(51,194,204,0.2),transparent_46%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_26%_14%,rgba(255,255,255,0.16),transparent_46%)]" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
 
           <div className="relative z-10 flex h-full flex-col items-center justify-center gap-2 py-3 sm:gap-3 sm:py-4">
-            <p className="text-sm tracking-[0.28em] text-cyan-200/90 uppercase transition duration-300 hover:text-cyan-100 hover:[text-shadow:0_0_10px_rgba(34,211,238,0.65),0_0_24px_rgba(34,211,238,0.45)] sm:text-base md:text-lg">
+            <p className="text-sm tracking-[0.28em] text-neutral-100/90 uppercase transition duration-300 hover:text-white hover:[text-shadow:0_0_10px_rgba(255,255,255,0.55),0_0_24px_rgba(255,255,255,0.35)] sm:text-base md:text-lg">
               Diff
             </p>
 
@@ -52,18 +56,18 @@ const About = () => {
                 </div>
 
                 <p className="max-w-[65ch] text-[13px] leading-relaxed text-neutral-200 sm:text-sm md:text-base">
-                  Software Engineering student focused on fullstack application
-                  development with Java, Spring Boot, React, and Node.js.
-                  Experienced in enterprise backend support and client projects,
-                  with emphasis on reliable APIs, performance, and clean
+                  Software Engineering student with a strong backend-first
+                  mindset, grounded in C++ and focused on building fullstack
+                  systems with Java, Spring Boot, Next.js, and NestJS.
+                  Experienced in enterprise support and production-minded API
                   delivery.
                 </p>
 
                 <div className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
-                  <div className="h-px w-full bg-gradient-to-r from-cyan-300/0 via-cyan-300/45 to-cyan-300/0" />
+                  <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/45 to-white/0" />
 
                   <p className="flex flex-wrap items-center gap-2 text-[10px] tracking-[0.08em] text-neutral-300 uppercase sm:text-[11px] sm:tracking-[0.12em] md:text-xs">
-                    <span className="rounded-full border border-cyan-300/35 bg-cyan-300/12 px-2 py-0.5 text-cyan-200">
+                    <span className="rounded-full border border-white/35 bg-white/12 px-2 py-0.5 text-white">
                       Now
                     </span>
                     Java Developer Intern @ Sunline (Bangkok)
@@ -84,7 +88,7 @@ const About = () => {
                     ))}
                   </div>
 
-                  <p className="text-[10px] text-cyan-100/75 sm:text-[11px] md:text-xs">
+                  <p className="text-[10px] text-neutral-200/75 sm:text-[11px] md:text-xs">
                     Tap or hover for 3D - Click for LinkedIn
                   </p>
                 </div>
@@ -97,16 +101,16 @@ const About = () => {
           <ShineBorder
             borderWidth={1}
             duration={8}
-            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+            shineColor={["#ffffff", "#bdbdbd", "#ffffff"]}
             className="rounded-2xl"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_22%,rgba(51,194,204,0.18),transparent_48%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_22%,rgba(255,255,255,0.15),transparent_48%)]" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
 
           <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 text-center">
             <div className="space-y-2">
-              <p className="text-xs tracking-[0.2em] text-cyan-300/90 uppercase [text-shadow:0_0_10px_rgba(34,211,238,0.35)]">
+              <p className="text-xs tracking-[0.2em] text-neutral-200/90 uppercase [text-shadow:0_0_10px_rgba(255,255,255,0.28)]">
                 Professional Focus
               </p>
               <p className="mt-2 text-2xl font-semibold text-neutral-200 md:text-3xl">
@@ -119,7 +123,7 @@ const About = () => {
                 repeat={5}
                 className="[--duration:70s] [--gap:0.65rem] px-0 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
               >
-                {coreExpertise.map((skill) => (
+                {coreStack.map((skill) => (
                   <span
                     key={skill}
                     className="rounded-xl border border-white/15 bg-midnight/60 px-3 py-2 text-xs text-neutral-200 sm:text-sm whitespace-nowrap"
@@ -147,72 +151,6 @@ const About = () => {
           <figure className="absolute left-[30%] top-[10%]">
             <Globe />
           </figure>
-        </div>
-        {/* Grid 4 */}
-        <div className="group grid-default-color grid-4">
-          <ShineBorder
-            borderWidth={1}
-            duration={8}
-            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
-            className="rounded-2xl"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(51,194,204,0.16),transparent_52%)]" />
-
-          <div className="relative z-10 h-full">
-            <AvailabilityGameCard />
-          </div>
-        </div>
-        {/* Grid 5 */}
-        <div className="group grid-default-color grid-5">
-          <ShineBorder
-            borderWidth={1}
-            duration={8}
-            shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
-            className="rounded-2xl"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(51,194,204,0.22),transparent_48%)]" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-primary/70 to-transparent" />
-
-          <div className="relative z-10 flex h-full flex-col gap-5 lg:flex-row lg:items-center lg:gap-5">
-            <div className="space-y-2.5 lg:w-[52%]">
-              <p className="headtext">Tech Stack</p>
-              <p className="text-[13px] text-neutral-200 sm:text-sm md:text-base">
-                Backend-first fullstack development for scalable products and
-                reliable API delivery.
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {coreStack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-cyan-300/35 bg-cyan-300/10 px-2.5 py-1 text-[10px] text-cyan-100 sm:px-3 sm:text-xs"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
-                <span className="text-cyan-200">Orbit map:</span> Inner ring
-                for frontend, outer ring for backend, data, and tools.
-              </p>
-
-              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
-                <span className="text-cyan-200">Tooling:</span> Docker,
-                Git/GitHub, PostgreSQL
-              </p>
-              <p className="text-[11px] leading-relaxed text-neutral-300 sm:text-xs md:text-sm">
-                <span className="text-cyan-200">Exploring:</span> AWS
-                deployment and Kubernetes operations
-              </p>
-            </div>
-
-            <div className="relative mx-auto h-64 w-full max-w-[20rem] sm:h-[17rem] sm:max-w-[21rem] md:h-[18rem] md:max-w-[22.5rem] lg:mx-0 lg:ml-auto lg:h-[17.5rem] lg:w-[46%] lg:max-w-[23rem]">
-              <Frameworks className="absolute inset-0 h-full w-full" />
-            </div>
-          </div>
         </div>
       </div>
     </section>

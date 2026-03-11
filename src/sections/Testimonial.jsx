@@ -3,10 +3,10 @@ import ShineBorder from "../components/ShineBorder";
 
 const achievementToneStyles = {
   amber: {
-    dot: "bg-orange",
+    dot: "bg-white",
   },
   pink: {
-    dot: "bg-fuchsia",
+    dot: "bg-neutral-400",
   },
 };
 
@@ -29,13 +29,13 @@ const EducationCard = ({
       <ShineBorder
         borderWidth={1}
         duration={8}
-        shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+        shineColor={["#ffffff", "#bdbdbd", "#ffffff"]}
         className="rounded-2xl"
       />
 
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-1">
-          <p className="text-[11px] tracking-[0.18em] text-aqua/80 uppercase">
+          <p className="text-[11px] tracking-[0.18em] text-neutral-200/80 uppercase">
             Education
           </p>
           <h3 className="text-lg font-semibold leading-snug text-white md:text-xl">
@@ -57,7 +57,7 @@ const EducationCard = ({
           <h4 className="mb-3 text-sm font-medium text-white">Highlights</h4>
           <ul className="ml-4 list-disc space-y-2 text-left text-xs text-neutral-200 md:text-sm">
             {achievements.map((achievement, achievementIndex) => (
-              <li key={achievementIndex} className="leading-relaxed marker:text-aqua">
+              <li key={achievementIndex} className="leading-relaxed marker:text-white">
                 {achievement}
               </li>
             ))}
@@ -76,7 +76,7 @@ const AchievementCard = ({
   tone,
   index,
 }) => {
-  const toneStyle = achievementToneStyles[tone] || achievementToneStyles.pink;
+  const toneStyle = achievementToneStyles[tone] || achievementToneStyles.amber;
 
   return (
     <motion.article
@@ -89,7 +89,7 @@ const AchievementCard = ({
       <ShineBorder
         borderWidth={1}
         duration={8}
-        shineColor={["#22d3ee", "#57db96", "#22d3ee"]}
+        shineColor={["#ffffff", "#bdbdbd", "#ffffff"]}
         className="rounded-2xl"
       />
 
@@ -159,15 +159,15 @@ export default function EducationAndAchievements() {
         "Showcased RepoAI at the Software Engineering Open House, presenting AI-driven GitHub workflows, system architecture, and project outcomes to students and faculty.",
       date: "February 2025",
       location: "Chiang Rai, Thailand",
-      tone: "pink",
+      tone: "amber",
     },
   ];
 
   return (
     <section id="education" className="c-space section-spacing">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(40,43,75,0.55)_0%,rgba(31,30,57,0.45)_40%,rgba(6,9,31,0.85)_75%,rgba(3,4,18,0.95)_100%)] p-6 md:p-10">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(40,40,40,0.62)_0%,rgba(24,24,24,0.5)_40%,rgba(10,10,10,0.88)_75%,rgba(5,5,5,0.96)_100%)] p-6 md:p-10">
         <div className="relative z-10">
-          <p className="text-xs tracking-[0.25em] text-cyan-300/90 uppercase [text-shadow:0_0_12px_rgba(34,211,238,0.32)]">
+          <p className="text-xs tracking-[0.25em] text-neutral-100/90 uppercase [text-shadow:0_0_12px_rgba(255,255,255,0.28)]">
             Academic Journey
           </p>
           <h2 className="mt-3 text-heading">Education & Achievements</h2>
@@ -178,7 +178,7 @@ export default function EducationAndAchievements() {
 
           <div className="mt-10">
             <div className="mb-5 flex items-center gap-3">
-              <span className="size-2 rounded-full bg-aqua shadow-[0_0_10px_rgba(51,194,204,0.6)]" />
+              <span className="size-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.55)]" />
               <h3 className="text-xl font-semibold text-white md:text-2xl">
                 Education
               </h3>
@@ -192,7 +192,7 @@ export default function EducationAndAchievements() {
 
           <div className="mt-12">
             <div className="mb-5 flex items-center gap-3">
-              <span className="size-2 rounded-full bg-fuchsia shadow-[0_0_10px_rgba(202,47,140,0.55)]" />
+              <span className="size-2 rounded-full bg-neutral-300 shadow-[0_0_10px_rgba(255,255,255,0.45)]" />
               <h3 className="text-xl font-semibold text-white md:text-2xl">
                 Key Achievements
               </h3>
