@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ProjectDetails from "./ProjectDetails";
 import ShineBorder from "./ShineBorder";
 
 const Project = ({
@@ -12,10 +11,22 @@ const Project = ({
   image,
   tags,
   variant = "default",
+  onOpenCaseStudy,
+  isModalOpen = false,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isInteractive, setIsInteractive] = useState(false);
   const isFeatured = variant === "featured";
+
+  const projectPayload = {
+    title,
+    description,
+    outcome,
+    subDescription,
+    image,
+    tags,
+    href,
+    liveUrl,
+  };
 
   return (
     <>
@@ -96,10 +107,12 @@ const Project = ({
 
           <div className="mt-auto flex flex-wrap items-center gap-2 pt-1">
               <button
-                onClick={() => setIsOpen(true)}
+                type="button"
+                onClick={() => onOpenCaseStudy?.(projectPayload)}
+                disabled={isModalOpen}
                 className="rounded-full border border-white/45 bg-white/10 px-4 py-2 text-xs font-medium text-white transition hover:border-white/80 hover:bg-white/20"
               >
-                View Case Study
+                View
               </button>
 
             {liveUrl && (
@@ -126,20 +139,6 @@ const Project = ({
           </div>
         </div>
       </article>
-
-      {isOpen && (
-        <ProjectDetails
-          title={title}
-          description={description}
-          outcome={outcome}
-          subDescription={subDescription}
-          image={image}
-          tags={tags}
-          href={href}
-          liveUrl={liveUrl}
-          closeModal={() => setIsOpen(false)}
-        />
-      )}
     </>
   );
 };

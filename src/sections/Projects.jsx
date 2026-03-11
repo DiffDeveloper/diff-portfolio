@@ -1,9 +1,30 @@
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 
+const ProjectDetails = lazy(() => import("../components/ProjectDetails"));
+
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
   const featuredProjects = myProjects.filter((project) => project.featured).slice(0, 2);
   const standardProjects = myProjects.filter((project) => !project.featured);
+
+  const openProject = useCallback((project) => {
+    setSelectedProject(project);
+  }, []);
+
+  const closeProject = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
+
+  useEffect(() => {
+    featuredProjects.forEach((project) => {
+      if (!project.image) return;
+
+      const img = new Image();
+      img.src = project.image;
+    });
+  }, [featuredProjects]);
 
   return (
     <section id="projects" className="relative c-space section-spacing">
@@ -17,15 +38,32 @@ const Projects = () => {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {featuredProjects.map((project) => (
-          <Project key={project.id} {...project} variant="featured" />
+          <Project
+            key={project.id}
+            {...project}
+            variant="featured"
+            onOpenCaseStudy={openProject}
+            isModalOpen={Boolean(selectedProject)}
+          />
         ))}
       </div>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {standardProjects.map((project) => (
-          <Project key={project.id} {...project} />
+          <Project
+            key={project.id}
+            {...project}
+            onOpenCaseStudy={openProject}
+            isModalOpen={Boolean(selectedProject)}
+          />
         ))}
       </div>
+
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectDetails {...selectedProject} closeModal={closeProject} />
+        </Suspense>
+      )}
     </section>
   );
 };

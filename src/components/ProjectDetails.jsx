@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const ProjectDetails = ({
   title,
@@ -12,6 +12,9 @@ const ProjectDetails = ({
   liveUrl,
   closeModal,
 }) => {
+  const dialogRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -22,26 +25,27 @@ const ProjectDetails = ({
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
+    dialogRef.current?.focus();
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "auto" });
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [closeModal]);
+  }, [closeModal, title]);
 
-  return (
+  const modalContent = (
     <div
-      className="fixed inset-0 z-[90] flex items-center justify-center bg-primary/75 p-0 backdrop-blur-md sm:p-6"
+      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/70 p-0 backdrop-blur-[2px] sm:p-6"
       onClick={closeModal}
       role="dialog"
       aria-modal="true"
       aria-label={`${title} details`}
     >
-      <motion.div
-        className="relative flex h-[100dvh] w-full flex-col overflow-hidden border border-white/10 bg-gradient-to-b from-midnight to-navy shadow-2xl sm:h-auto sm:max-h-[90dvh] sm:w-full sm:max-w-4xl sm:rounded-2xl"
-        initial={{ opacity: 0, scale: 0.96, y: 16 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
+      <div
+        ref={dialogRef}
+        tabIndex={-1}
+        className="relative flex h-[100svh] w-full flex-col overflow-hidden border border-white/10 bg-gradient-to-b from-midnight to-navy shadow-[0_20px_65px_rgba(0,0,0,0.62)] transition-transform duration-200 sm:h-auto sm:max-h-[88svh] sm:w-full sm:max-w-4xl sm:rounded-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-midnight/95 px-4 py-3 backdrop-blur sm:px-6">
@@ -53,15 +57,17 @@ const ProjectDetails = ({
             className="grid size-9 place-items-center rounded-full border border-white/15 bg-navy/80 transition hover:border-white/70 hover:bg-white/10"
             aria-label="Close project details"
           >
-            <img src="assets/close.svg" className="size-5" alt="Close" />
+            <img src="/assets/close.svg" className="size-5" alt="Close" />
           </button>
         </div>
 
-        <div className="overflow-y-auto">
+        <div ref={scrollContainerRef} className="project-modal-scroll overflow-y-auto">
           <div className="border-b border-white/10 bg-gradient-to-b from-navy/70 to-midnight/70 px-3 py-3 sm:px-4 sm:py-4">
             <img
               src={image}
               alt={title}
+              loading="eager"
+              decoding="sync"
               className="mx-auto h-auto max-h-[45dvh] w-full rounded-lg object-contain sm:max-h-[50dvh]"
             />
           </div>
@@ -133,7 +139,7 @@ const ProjectDetails = ({
                   className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:border-white/80 hover:bg-white/20"
                 >
                   Live Demo
-                  <img src="assets/arrow-up.svg" className="size-4" alt="Open" />
+                  <img src="/assets/arrow-up.svg" className="size-4" alt="Open" />
                 </a>
               )}
 
@@ -145,15 +151,19 @@ const ProjectDetails = ({
                   className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:border-white/80 hover:bg-white/20"
                 >
                   Source Code
-                  <img src="assets/arrow-up.svg" className="size-4" alt="Open" />
+                  <img src="/assets/arrow-up.svg" className="size-4" alt="Open" />
                 </a>
               )}
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
+
+  if (typeof document === "undefined") return null;
+
+  return createPortal(modalContent, document.body);
 };
 
 export default ProjectDetails;
