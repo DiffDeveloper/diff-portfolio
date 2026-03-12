@@ -72,6 +72,9 @@ const talentNodes = [
     skills: [
       { name: "Docker", logo: "/assets/logos/icons8-docker.svg", short: "Docker" },
       { name: "DBeaver", logo: "/assets/logos/icons8-dbeaver-64.png", short: "DB" },
+      { name: "Postman", logo: "/assets/logos/icons8-postman-api-48.png", short: "Postman" },
+      { name: "Git", logo: "/assets/logos/git.svg", short: "Git" },
+      { name: "GitHub", logo: "/assets/logos/github.svg", short: "GH" },
       { name: "TurboRepo", logo: "/assets/logos/turbo repo.png", short: "Turbo" },
       { name: "Stripe", logo: "/assets/logos/stripe.svg", short: "Stripe" },
     ],
