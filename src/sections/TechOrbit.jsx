@@ -160,6 +160,12 @@ const TechOrbit = () => {
   const nodeRefs = useRef({});
   const [layout, setLayout] = useState(null);
   const [activeNode, setActiveNode] = useState(null);
+  const [expandedNodes, setExpandedNodes] = useState({});
+
+  const nodeById = useMemo(
+    () => Object.fromEntries(talentNodes.map((node) => [node.id, node])),
+    []
+  );
 
   const setNodeRef = (id) => (element) => {
     if (element) {
@@ -236,6 +242,42 @@ const TechOrbit = () => {
     return new Set(edgeKeys[activeNode] || []);
   }, [activeNode]);
 
+  const toggleNodeExpand = (nodeId) => {
+    setExpandedNodes((prev) => ({
+      ...prev,
+      [nodeId]: !prev[nodeId],
+    }));
+  };
+
+  const renderNodeSkills = (nodeId, limit = 4) => {
+    const node = nodeById[nodeId];
+    if (!node || node.skills.length === 0) return null;
+
+    const isExpanded = Boolean(expandedNodes[nodeId]);
+    const visibleSkills = isExpanded ? node.skills : node.skills.slice(0, limit);
+    const hiddenCount = Math.max(node.skills.length - limit, 0);
+
+    return (
+      <>
+        <div className="talent-card__skills">
+          {visibleSkills.map((skill) => (
+            <SkillPill key={`${nodeId}-${skill.name}`} skill={skill} />
+          ))}
+        </div>
+
+        {hiddenCount > 0 && (
+          <button
+            type="button"
+            className="quest-node__toggle"
+            onClick={() => toggleNodeExpand(nodeId)}
+          >
+            {isExpanded ? "Show less" : `+${hiddenCount} more`}
+          </button>
+        )}
+      </>
+    );
+  };
+
   return (
     <section id="tech" className="c-space mt-16 md:mt-20">
       <h2 className="text-heading">Tech Stack Talent Tree</h2>
@@ -253,9 +295,70 @@ const TechOrbit = () => {
 
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(255,255,255,0.12),transparent_44%)]" />
 
+        <div className="quest-mobile relative z-10 xl:hidden">
+          <div className="quest-mobile__rail" aria-hidden="true" />
+
+          <article className="quest-node quest-node--root">
+            <span className="quest-node__dot" aria-hidden="true" />
+            <p className="quest-node__tier">Root</p>
+            <h3 className="quest-node__title">{nodeById.root.title}</h3>
+            <p className="quest-node__sub">{nodeById.root.subtitle}</p>
+          </article>
+
+          <article className="quest-node">
+            <span className="quest-node__dot" aria-hidden="true" />
+            <p className="quest-node__tier">Layer 1</p>
+            <h3 className="quest-node__title">{nodeById.languages.title}</h3>
+            {renderNodeSkills("languages")}
+          </article>
+
+          <div className="quest-fork" aria-hidden="true">
+            <span className="quest-fork__line" />
+            <span className="quest-fork__label">Branch Route</span>
+            <span className="quest-fork__line" />
+          </div>
+
+          <div className="quest-branch-grid">
+            <article className="quest-branch-card">
+              <p className="quest-node__tier">Layer 2</p>
+              <h3 className="quest-node__title">{nodeById.frontend.title}</h3>
+              {renderNodeSkills("frontend")}
+            </article>
+
+            <article className="quest-branch-card">
+              <p className="quest-node__tier">Layer 2</p>
+              <h3 className="quest-node__title">{nodeById.backend.title}</h3>
+              {renderNodeSkills("backend")}
+            </article>
+          </div>
+
+          <article className="quest-node">
+            <span className="quest-node__dot" aria-hidden="true" />
+            <p className="quest-node__tier">Layer 3</p>
+            <h3 className="quest-node__title">{nodeById.databases.title}</h3>
+            {renderNodeSkills("databases")}
+          </article>
+
+          <div className="quest-sidequest-block">
+            <p className="quest-sidequest__title">Side Quests</p>
+
+            <div className="quest-sidequest__grid">
+              <article className="quest-branch-card quest-branch-card--sidequest">
+                <h3 className="quest-node__title">{nodeById.tools.title}</h3>
+                {renderNodeSkills("tools", 5)}
+              </article>
+
+              <article className="quest-branch-card quest-branch-card--sidequest">
+                <h3 className="quest-node__title">{nodeById.exploring.title}</h3>
+                {renderNodeSkills("exploring")}
+              </article>
+            </div>
+          </div>
+        </div>
+
         <div
           ref={boardRef}
-          className="talent-tree-board relative z-10"
+          className="talent-tree-board relative z-10 hidden xl:block"
           onMouseLeave={() => setActiveNode(null)}
         >
           {layout && (
