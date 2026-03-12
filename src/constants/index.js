@@ -26,12 +26,12 @@ export const myProjects = [
       {
         id: 2,
         name: "Node.js",
-        path: "/assets/logos/javascript.svg",
+        path: "/assets/logos/icons8-nodejs-50.svg",
       },
       {
         id: 3,
         name: "MongoDB",
-        path: "/assets/logos/database.png",
+        path: "/assets/logos/icons8-mongo-db-32.png",
       },
       {
         id: 4,
@@ -108,7 +108,7 @@ export const myProjects = [
       {
         id: 2,
         name: "Node.js",
-        path: "/assets/logos/javascript.svg",
+        path: "/assets/logos/icons8-nodejs-50.svg",
       },
       {
         id: 3,
@@ -221,22 +221,22 @@ export const myProjects = [
       {
         id: 1,
         name: "TypeScript",
-        path: "",
+        path: "/assets/logos/icons8-typescript.svg",
       },
       {
         id: 2,
         name: "Next.js",
-        path: "",
+        path: "/assets/logos/icons8-nextjs.svg",
       },
       {
         id: 3,
         name: "NestJS",
-        path: "",
+        path: "/assets/logos/icons8-nestjs.svg",
       },
       {
         id: 4,
         name: "Prisma",
-        path: "",
+        path: "/assets/logos/icons8-prisma-orm-50.svg",
       },
       {
         id: 5,
@@ -251,7 +251,7 @@ export const myProjects = [
       {
         id: 7,
         name: "TurboRepo",
-        path: "",
+        path: "/assets/logos/turbo repo.png",
       },
     ],
   },
@@ -277,17 +277,17 @@ export const myProjects = [
       {
         id: 1,
         name: "Nuxt 3",
-        path: "",
+        path: "/assets/logos/icons8-nuxt-js.svg",
       },
       {
         id: 2,
         name: "TypeScript",
-        path: "",
+        path: "/assets/logos/icons8-typescript.svg",
       },
       {
         id: 3,
         name: "Drizzle ORM",
-        path: "",
+        path: "/assets/logos/drizzle.svg",
       },
       {
         id: 4,
