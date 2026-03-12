@@ -45,6 +45,7 @@ const talentNodes = [
       { name: "Spring Boot", logo: "/assets/logos/springboot.png", short: "Spring" },
       { name: "NestJS", logo: "/assets/logos/icons8-nestjs.svg", short: "Nest" },
       { name: "Node.js", logo: "/assets/logos/icons8-nodejs-50.svg", short: "Node" },
+      { name: "PHP", logo: "/assets/logos/icons8-php-48.png", short: "PHP" },
       { name: "Django", logo: "/assets/logos/django.png", short: "Django" },
       { name: "Flask", logo: "/assets/logos/python.png", short: "Flask" },
     ],
