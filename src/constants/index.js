@@ -308,6 +308,29 @@ export const myProjects = [
   },
 ];
 
+export const myEmail = "mkthanswe@gmail.com";
+export const myGithub = "https://github.com/DiffDeveloper";
+
+export const nowItems = [
+  {
+    label: "Now",
+    text: "Java Developer @ Sunline Technology, Bangkok",
+    live: true,
+  },
+  {
+    label: "Building",
+    text: "Multi-vendor e-commerce & AI finance side projects",
+  },
+  {
+    label: "Learning",
+    text: "AWS, Kubernetes & cloud-native deployment",
+  },
+  {
+    label: "Open to",
+    text: "Collaboration & freelance projects — let's talk",
+  },
+];
+
 export const mySocials = [
   {
     name: "WhatsApp",
@@ -328,9 +351,19 @@ export const mySocials = [
 
 export const experiences = [
   {
+    title: "Java Developer",
+    job: "Sunline Technology (Bangkok, Onsite)",
+    date: "June 2026 - Present",
+    contents: [
+      "Promoted to a permanent Java Developer role after completing the internship, taking ownership of Spring Boot services in core banking workflows.",
+      "Develop and maintain backend features and APIs, collaborating with QA and business analysts across SIT and UAT release cycles.",
+      "Continue defect investigation, batch monitoring, and production support with increased responsibility for delivery quality.",
+    ],
+  },
+  {
     title: "Java Developer Intern",
     job: "Sunline Technology (Bangkok, Onsite)",
-    date: "January 2026 - Present",
+    date: "January 2026 - April 2026",
     contents: [
       "Supported enterprise Spring Boot (MVC) services within core banking workflows across SIT and UAT environments.",
       "Investigated defects, monitored batch processes, and performed log analysis to maintain backend stability during test cycles.",

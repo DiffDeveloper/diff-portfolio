@@ -2,7 +2,7 @@
 
 import createGlobe from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { twMerge } from "tailwind-merge";
 
@@ -37,11 +37,11 @@ const GLOBE_CONFIG = {
 };
 
 export function Globe({ className, config = GLOBE_CONFIG }) {
-  let phi = 0;
-  let width = 0;
   const canvasRef = useRef(null);
+  const phiRef = useRef(0);
+  const widthRef = useRef(0);
   const pointerInteracting = useRef(null);
-  const pointerInteractionMovement = useRef(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const r = useMotionValue(0);
   const rs = useSpring(r, {
@@ -60,39 +60,53 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   const updateMovement = (clientX) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
       r.set(r.get() + delta / MOVEMENT_DAMPING);
     }
   };
 
   useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsMobile(media.matches);
+    updateViewport();
+    media.addEventListener("change", updateViewport);
+    return () => media.removeEventListener("change", updateViewport);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return undefined;
+
     const onResize = () => {
-      if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
-      }
+      widthRef.current = canvas.offsetWidth;
     };
 
     window.addEventListener("resize", onResize);
     onResize();
+    const renderScale = isMobile ? 1 : Math.min(config.devicePixelRatio || 2, 1.5);
 
-    const globe = createGlobe(canvasRef.current, {
+    const globe = createGlobe(canvas, {
       ...config,
-      width: width * 2,
-      height: width * 2,
+      devicePixelRatio: renderScale,
+      mapSamples: isMobile ? Math.min(config.mapSamples || 16000, 9000) : config.mapSamples,
+      width: widthRef.current * renderScale,
+      height: widthRef.current * renderScale,
       onRender: (state) => {
-        if (!pointerInteracting.current) phi += 0.005;
-        state.phi = phi + rs.get();
-        state.width = width * 2;
-        state.height = width * 2;
+        if (!pointerInteracting.current) phiRef.current += 0.005;
+        state.phi = phiRef.current + rs.get();
+        state.width = widthRef.current * renderScale;
+        state.height = widthRef.current * renderScale;
       },
     });
 
-    setTimeout(() => (canvasRef.current.style.opacity = "1"), 0);
+    const revealTimer = window.setTimeout(() => {
+      if (canvasRef.current) canvasRef.current.style.opacity = "1";
+    }, 0);
     return () => {
+      window.clearTimeout(revealTimer);
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [rs, config]);
+  }, [rs, config, isMobile]);
 
   return (
     <div
@@ -103,9 +117,11 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
     >
       <canvas
         className={twMerge(
-          "size-[30rem] opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
+          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
         )}
         ref={canvasRef}
+        aria-label="Interactive globe showing my global work interests"
+        style={{ touchAction: "none" }}
         onPointerDown={(e) => {
           pointerInteracting.current = e.clientX;
           updatePointerInteraction(e.clientX);

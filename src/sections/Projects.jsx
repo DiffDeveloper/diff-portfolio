@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 
@@ -6,8 +6,14 @@ const ProjectDetails = lazy(() => import("../components/ProjectDetails"));
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const featuredProjects = myProjects.filter((project) => project.featured).slice(0, 2);
-  const standardProjects = myProjects.filter((project) => !project.featured);
+  const featuredProjects = useMemo(
+    () => myProjects.filter((project) => project.featured).slice(0, 2),
+    []
+  );
+  const standardProjects = useMemo(
+    () => myProjects.filter((project) => !project.featured),
+    []
+  );
 
   const openProject = useCallback((project) => {
     setSelectedProject(project);

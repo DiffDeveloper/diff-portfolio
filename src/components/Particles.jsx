@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 const hexToRgb = (hex) => {
@@ -42,7 +42,7 @@ export const Particles = ({
     return mapped > 0 ? mapped : 0;
   };
 
-  const createCircle = () => {
+  const createCircle = useCallback(() => {
     const { w, h } = canvasSizeRef.current;
     return {
       x: Math.floor(Math.random() * w),
@@ -56,7 +56,7 @@ export const Particles = ({
       dy: (Math.random() - 0.5) * 0.1,
       magnetism: 0.1 + Math.random() * 4,
     };
-  };
+  }, [size]);
 
   const drawCircle = (circle, rgb, update = false) => {
     const context = contextRef.current;
@@ -112,11 +112,14 @@ export const Particles = ({
     if (!contextRef.current) return;
 
     const rgb = hexToRgb(color);
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-    const refillParticles = () => {
+    const refillParticles = (staticFrame = false) => {
       circlesRef.current = [];
       for (let i = 0; i < quantity; i++) {
-        drawCircle(createCircle(), rgb);
+        const circle = createCircle();
+        if (staticFrame) circle.alpha = circle.targetAlpha;
+        drawCircle(circle, rgb);
       }
     };
 
@@ -201,7 +204,7 @@ export const Particles = ({
     const handleVisibilityChange = () => {
       if (document.hidden) {
         stopAnimation();
-      } else {
+      } else if (!prefersReducedMotion) {
         startAnimation();
       }
     };
@@ -212,17 +215,28 @@ export const Particles = ({
       }
       resizeTimeoutRef.current = window.setTimeout(() => {
         resizeCanvas();
-        refillParticles();
+        refillParticles(prefersReducedMotion);
       }, 180);
     };
 
     resizeCanvas();
-    refillParticles();
-    startAnimation();
+    refillParticles(prefersReducedMotion);
+    if (!prefersReducedMotion) startAnimation();
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    const observer = "IntersectionObserver" in window
+      ? new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting && !document.hidden && !prefersReducedMotion) {
+            startAnimation();
+          } else {
+            stopAnimation();
+          }
+        }, { rootMargin: "180px" })
+      : null;
+    if (observer && canvasContainerRef.current) observer.observe(canvasContainerRef.current);
 
     return () => {
       stopAnimation();
@@ -232,8 +246,9 @@ export const Particles = ({
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      observer?.disconnect();
     };
-  }, [color, ease, quantity, refresh, size, staticity, vx, vy]);
+  }, [color, createCircle, ease, quantity, refresh, size, staticity, vx, vy]);
 
   return (
     <div

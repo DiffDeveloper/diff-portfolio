@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { OPEN_PALETTE_EVENT } from "../components/CommandPalette";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home" },
@@ -47,6 +48,8 @@ function Navigation({ onNavigate = () => {} }) {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isMac =
+    typeof navigator !== "undefined" && /Mac|iPhone|iPad/i.test(navigator.platform);
 
   return (
     <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
@@ -58,19 +61,30 @@ const Navbar = () => {
           >
             Diff
           </a>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-          >
-            <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="h-6 w-6"
-              alt="toggle"
-            />
-          </button>
-          <nav className="hidden sm:flex">
-            <Navigation onNavigate={() => setIsOpen(false)} />
-          </nav>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
+              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 font-mono text-[11px] text-neutral-400 transition-colors hover:border-white/30 hover:text-white focus-visible:border-white/40 focus-visible:text-white focus-visible:outline-none"
+              aria-label="Open command palette"
+            >
+              <span aria-hidden="true">{isMac ? "⌘" : "Ctrl"}</span>
+              <span aria-hidden="true">K</span>
+            </button>
+            <nav className="hidden sm:flex">
+              <Navigation onNavigate={() => setIsOpen(false)} />
+            </nav>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            >
+              <img
+                src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+                className="h-6 w-6"
+                alt="toggle"
+              />
+            </button>
+          </div>
         </div>
       </div>
       {isOpen && (

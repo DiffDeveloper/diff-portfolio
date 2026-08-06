@@ -31,7 +31,11 @@ const About = () => {
         {/* Grid 1 */}
         <div className="grid-default-color grid-1">
           <img
-            src="assets/coding-pov.png"
+            src="/assets/coding-pov.png"
+            alt="Developer workspace"
+            width="1328"
+            height="813"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-[60%_22%] opacity-60"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/84 via-midnight/58 to-midnight/18" />
@@ -56,11 +60,10 @@ const About = () => {
                 </div>
 
                 <p className="max-w-[65ch] text-[13px] leading-relaxed text-neutral-200 sm:text-sm md:text-base">
-                  Software Engineering student with a strong backend-first
-                  mindset, grounded in C++ and focused on building fullstack
-                  systems with Java, Spring Boot, Next.js, and NestJS.
-                  Experienced in enterprise support and production-minded API
-                  delivery.
+                  Java Developer with a strong backend-first mindset, grounded
+                  in C++ and focused on building fullstack systems with Java,
+                  Spring Boot, Next.js, and NestJS. Experienced in enterprise
+                  core banking support and production-minded API delivery.
                 </p>
 
                 <div className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
@@ -70,7 +73,7 @@ const About = () => {
                     <span className="rounded-full border border-white/35 bg-white/12 px-2 py-0.5 text-white">
                       Now
                     </span>
-                    Java Developer Intern @ Sunline (Bangkok)
+                    Java Developer @ Sunline (Bangkok)
                   </p>
 
                   <div className="flex flex-wrap gap-2">
@@ -148,7 +151,7 @@ const About = () => {
               onsite, and relocation opportunities.
             </p>
           </div>
-          <figure className="absolute left-[30%] top-[10%]">
+          <figure className="absolute left-[30%] top-[10%] w-[70%] max-w-[30rem]">
             <Globe />
           </figure>
         </div>

@@ -119,11 +119,11 @@ export default function EducationAndAchievements() {
     {
       degree: "Bachelor of Engineering in Software Engineering",
       institution: "Mae Fah Luang University",
-      date: "August 2022 - May 2026 (Expected)",
+      date: "August 2022 - July 2026",
       description:
         "Software engineering curriculum centered on practical application development, architecture fundamentals, and team-based delivery.",
       achievements: [
-        "Current GPA: 3.80",
+        "Graduated July 2026 with a final GPA of 3.82",
         "Software Engineering specialization",
         "Built fullstack and AI-focused academic projects",
         "Hands-on experience with agile collaboration",

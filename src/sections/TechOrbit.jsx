@@ -1,120 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import ShineBorder from "../components/ShineBorder";
-
-const talentNodes = [
-  {
-    id: "root",
-    title: "Diff's Talent Tree",
-    tier: "Root Node",
-    subtitle: "Start here and unlock each branch",
-    skills: [],
-    className: "talent-pos-root",
-  },
-  {
-    id: "languages",
-    title: "Languages",
-    tier: "Layer 1",
-    skills: [
-      { name: "C++", logo: "/assets/logos/cplusplus.svg", short: "C++" },
-      { name: "Java", logo: "/assets/logos/java.png", short: "Java" },
-      { name: "Python", logo: "/assets/logos/python.png", short: "Py" },
-      { name: "JavaScript", logo: "/assets/logos/javascript.svg", short: "JS" },
-      { name: "TypeScript", logo: "/assets/logos/icons8-typescript.svg", short: "TS" },
-      { name: "C#", logo: "/assets/logos/csharp.svg", short: "C#" },
-    ],
-    className: "talent-pos-languages",
-  },
-  {
-    id: "frontend",
-    title: "Front-end",
-    tier: "Layer 2",
-    skills: [
-      { name: "React", logo: "/assets/logos/react.svg", short: "React" },
-      { name: "Vue", logo: "/assets/logos/icons8-vue-js.svg", short: "Vue" },
-      { name: "Next.js", logo: "/assets/logos/icons8-nextjs.svg", short: "Next" },
-      { name: "Tailwind CSS", logo: "/assets/logos/tailwindcss.svg", short: "TW" },
-      { name: "Nuxt 3", logo: "/assets/logos/icons8-nuxt-js.svg", short: "Nuxt" },
-    ],
-    className: "talent-pos-frontend",
-  },
-  {
-    id: "backend",
-    title: "Back-end",
-    tier: "Layer 2",
-    skills: [
-      { name: "Spring Boot", logo: "/assets/logos/springboot.png", short: "Spring" },
-      { name: "NestJS", logo: "/assets/logos/icons8-nestjs.svg", short: "Nest" },
-      { name: "Node.js", logo: "/assets/logos/icons8-nodejs-50.svg", short: "Node" },
-      { name: "PHP", logo: "/assets/logos/icons8-php-48.png", short: "PHP" },
-      { name: "Django", logo: "/assets/logos/django.png", short: "Django" },
-      { name: "Flask", logo: "/assets/logos/python.png", short: "Flask" },
-    ],
-    className: "talent-pos-backend",
-  },
-  {
-    id: "databases",
-    title: "Databases",
-    tier: "Layer 3",
-    skills: [
-      { name: "Firebase", logo: "/assets/logos/icons8-firebase.svg", short: "FB" },
-      { name: "PostgreSQL", logo: "/assets/logos/postgre.png", short: "PG" },
-      { name: "MySQL", logo: "/assets/logos/mysql.png", short: "MySQL" },
-      { name: "MongoDB", logo: "/assets/logos/icons8-mongo-db-32.png", short: "MDB" },
-      { name: "Prisma", logo: "/assets/logos/icons8-prisma-orm-50.svg", short: "Prisma" },
-      { name: "Drizzle ORM", logo: "/assets/logos/drizzle.svg", short: "Drizzle" },
-    ],
-    className: "talent-pos-databases",
-  },
-  {
-    id: "tools",
-    title: "Tools",
-    tier: "Layer 3",
-    skills: [
-      { name: "Docker", logo: "/assets/logos/icons8-docker.svg", short: "Docker" },
-      { name: "DBeaver", logo: "/assets/logos/icons8-dbeaver-64.png", short: "DB" },
-      { name: "Postman", logo: "/assets/logos/icons8-postman-api-48.png", short: "Postman" },
-      { name: "Git", logo: "/assets/logos/git.svg", short: "Git" },
-      { name: "GitHub", logo: "/assets/logos/github.svg", short: "GH" },
-      { name: "TurboRepo", logo: "/assets/logos/turbo repo.png", short: "Turbo" },
-      { name: "Stripe", logo: "/assets/logos/stripe.svg", short: "Stripe" },
-    ],
-    className: "talent-pos-tools",
-  },
-  {
-    id: "exploring",
-    title: "Exploring",
-    tier: "Passive Talent",
-    skills: [
-      { name: "AWS", logo: "/assets/logos/aws-svgrepo-com.svg", short: "AWS" },
-      {
-        name: "Kubernetes",
-        logo: "/assets/logos/kubernetes-svgrepo-com.svg",
-        short: "K8s",
-      },
-      { name: "Auth0", logo: "/assets/logos/auth0.svg", short: "Auth0" },
-      { name: "Three.js", logo: "/assets/logos/threejs.svg", short: "3JS" },
-      { name: "OpenAI API", logo: "", short: "AI" },
-    ],
-    className: "talent-pos-exploring",
-    sideQuest: true,
-  },
-];
-
-const treeEdges = [
-  { from: "root", to: "languages" },
-  { from: "languages", to: "frontend" },
-  { from: "languages", to: "backend" },
-  { from: "frontend", to: "databases" },
-  { from: "backend", to: "databases" },
-  { from: "backend", to: "tools" },
-  {
-    from: "languages",
-    to: "exploring",
-    variant: "sidequest",
-    fromAnchor: "right",
-    toAnchor: "left",
-  },
-];
+import { talentNodes, treeEdges } from "../constants/talentTree";
+import { ENTER_GAME_EVENT } from "../game/events";
 
 const SkillPill = ({ skill }) => {
   const [broken, setBroken] = useState(false);
@@ -281,9 +168,18 @@ const TechOrbit = () => {
   return (
     <section id="tech" className="c-space mt-16 md:mt-20">
       <h2 className="text-heading">Tech Stack Talent Tree</h2>
-      <p className="mt-3 max-w-3xl text-sm text-neutral-300 md:text-base">
-        Welcome to my RPG-style Tech Stack Talent Tree.
-      </p>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+        <p className="max-w-3xl text-sm text-neutral-300 md:text-base">
+          Welcome to my RPG-style Tech Stack Talent Tree.
+        </p>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event(ENTER_GAME_EVENT))}
+          className="flex cursor-pointer items-center gap-2 rounded-md border border-white/15 bg-white/5 px-3 py-2 font-mono text-xs text-neutral-300 transition-colors hover:border-white/30 hover:text-white focus-visible:border-white/40 focus-visible:text-white focus-visible:outline-none"
+        >
+          <span aria-hidden="true">▶</span> Explore in 3D
+        </button>
+      </div>
 
       <div className="group relative mt-8 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-midnight/90 to-primary/90 p-5 sm:p-6 md:p-8">
         <ShineBorder

@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { FlipWords } from "./FlipWords";
 import HoverBorderButton from "./HoverBorderButton";
-import TextGenerateEffect from "./TextGenerateEffect";
 
 gsap.registerPlugin(useGSAP);
 
@@ -49,12 +48,6 @@ const HeroText = () => {
             Fullstack Engineer • Bangkok
           </p>
 
-          <TextGenerateEffect
-            words="Building production-minded software with clean architecture and reliable delivery."
-            delay={0.15}
-            className="js-hero-reveal mx-auto max-w-2xl text-sm text-neutral-300 md:text-base"
-          />
-
           <h1 className="js-hero-reveal text-[clamp(1.25rem,5.1vw,3rem)] font-semibold leading-tight whitespace-nowrap text-white">
             Hi, I&apos;m Min Khant Than Swe
           </h1>
@@ -80,10 +73,6 @@ const HeroText = () => {
             <HoverBorderButton href="#projects">View Projects</HoverBorderButton>
             <HoverBorderButton href="#contact">Let&apos;s Talk</HoverBorderButton>
           </div>
-
-          <p className="js-hero-reveal mx-auto max-w-xl text-xs text-neutral-300 sm:text-sm">
-            Intern @ Sunline • 5+ shipped projects • AI capstone presenter
-          </p>
         </div>
 
         <div className="js-hero-portrait relative mx-auto w-full max-w-sm md:max-w-md">
@@ -91,6 +80,10 @@ const HeroText = () => {
           <img
             src="/assets/Adobe Express - file.png"
             alt="Min Khant Than Swe profile"
+            width="1024"
+            height="1024"
+            fetchPriority="high"
+            decoding="async"
             className="relative mx-auto h-auto w-full max-w-[22rem] object-contain"
           />
         </div>
